@@ -53,6 +53,7 @@ RectangleShape crearBarrita();
 CircleShape crearPelotita();
 Font cargarFuente();
 Text atributosTexto(String valor, Font fuente, Vector2f posiciones);
+Texture cargarTextura(String ruta);
 
 int main()
 {
@@ -119,46 +120,44 @@ int main()
   //----------------------------------------------------------------------------
 
   // ------------------------------ TEXTURAS -----------------------------------------
+
+  //Texturas de ojos que giran, para la pelotita
   sf::Texture texturasOjos[5];
 
-  if (!texturasOjos[0].loadFromFile("../recursos/kenney_googly-eyes/PNG/googly-a.png"))
-  {
-    return -1;
-  }
+  texturasOjos[0] = cargarTextura("../recursos/kenney_googly-eyes/PNG/googly-a.png");
+  texturasOjos[1] = cargarTextura("../recursos/kenney_googly-eyes/PNG/googly-b.png");
+  texturasOjos[2] = cargarTextura("../recursos/kenney_googly-eyes/PNG/googly-c.png");
+  texturasOjos[3] = cargarTextura("../recursos/kenney_googly-eyes/PNG/googly-d.png");
+  texturasOjos[4] = cargarTextura("../recursos/kenney_googly-eyes/PNG/googly-e.png");
 
-  if (!texturasOjos[1].loadFromFile("../recursos/kenney_googly-eyes/PNG/googly-b.png"))
-  {
-    return -1;
-  }
-
-  if (!texturasOjos[2].loadFromFile("../recursos/kenney_googly-eyes/PNG/googly-c.png"))
-  {
-    return -1;
-  }
-
-  if (!texturasOjos[3].loadFromFile("../recursos/kenney_googly-eyes/PNG/googly-d.png"))
-  {
-    return -1;
-  }
-
-  if (!texturasOjos[4].loadFromFile("../recursos/kenney_googly-eyes/PNG/googly-e.png"))
-  {
-    return -1;
-  }
-
+  //Textura del fondo
   sf::Texture texturaFondo;
 
-  if (!texturaFondo.loadFromFile("../recursos/fondo.jpg"))
-  {
-    return -1;
-  }
+  texturaFondo = cargarTextura("../recursos/fondo.jpg");
 
   sf::Sprite fondo(texturaFondo);
+
   //---------------------------------------------------------------------------------------
+
+  // ----------------------- SONIDOS --------------------------------
+
+  /*sf::SoundBuffer bufferDerrota;
+      if (!bufferDerrota.loadFromFile("../recursos/Sonidos/SonidoDerrotaMario.ogg"))
+      {
+        std::cerr << "Error al cargar el buffer" << std::endl;
+      }
+
+      sf::Sound sonidoDerrota;
+      sonidoDerrota.setBuffer(bufferDerrota);*/
+
+  //-----------------------------------------------------------------
 
   while (ventana.isOpen())
   {
-    /*int numeroDeTexturaAMostrar = 0;
+    /*
+    EL PROBLEMA QUE TENGO, ES QUE SIEMPRE SE QUEDA EN LA ULTIMA
+
+    int numeroDeTexturaAMostrar = 0;
     pelotita.setTexture(&texturasOjos[numeroDeTexturaAMostrar]);
 
     numeroDeTexturaAMostrar = numeroDeTexturaAMostrar + 1;
@@ -265,6 +264,9 @@ int main()
       {
         ventana.close(); // Cerrar la ventana
       }*/
+
+      // sonidoDerrota.play();
+
       Event event = Event();
 
       while (ventana.pollEvent(event))
@@ -280,7 +282,7 @@ int main()
       textoDerrota.setString("\tPERDISTE :(\nCIERRA LA VENTANA\nGRACIAS POR JUGAR"); // Establece el texto
       textoDerrota.setCharacterSize(50);                                             // Establece el tamaño del texto
       textoDerrota.setFillColor(sf::Color::Red);                                     // Establece el color del texto
-      textoDerrota.setPosition({150, 150});                                          // Establece la posición
+      textoDerrota.setPosition({150, 180});                                          // Establece la posición
 
       ventana.draw(textoDerrota);
     }
@@ -385,4 +387,16 @@ Font cargarFuente()
   }
 
   return fuente;
+}
+
+Texture cargarTextura(String ruta)
+{
+  Texture textura;
+
+  if (!textura.loadFromFile(ruta))
+  {
+    std::cerr << "Error al cargar la fuente" << std::endl;
+  }
+
+  return textura;
 }
