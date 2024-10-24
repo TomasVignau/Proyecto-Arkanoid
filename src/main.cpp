@@ -5,7 +5,7 @@
  */
 const unsigned int ANCHO_VENT = 800;
 const unsigned int ALTO_VENT = 600;
-const unsigned int FRAMERATE = 120;
+const unsigned int FRAMERATE = 60;
 
 // lee los eventos (clicks, posición del mouse, redimensión de la ventana, etc)
 void leer_eventos(RenderWindow &window, RectangleShape &barrita);
@@ -141,31 +141,52 @@ int main()
 
   // ----------------------- SONIDOS --------------------------------
 
-  /*sf::SoundBuffer bufferDerrota;
-      if (!bufferDerrota.loadFromFile("../recursos/Sonidos/SonidoDerrotaMario.ogg"))
+  sf::SoundBuffer bufferDerrota;
+      if (!bufferDerrota.loadFromFile("../recursos/Sonidos/SuperMarioDerrota.wav"))
       {
         std::cerr << "Error al cargar el buffer" << std::endl;
       }
 
       sf::Sound sonidoDerrota;
-      sonidoDerrota.setBuffer(bufferDerrota);*/
+      sonidoDerrota.setBuffer(bufferDerrota);
+      sonidoDerrota.setVolume(100.0);
+
+    sf::SoundBuffer bufferRebote;
+      if (!bufferRebote.loadFromFile("../recursos/Sonidos/SonidoReboteDePelota.wav"))
+      {
+        std::cerr << "Error al cargar el buffer" << std::endl;
+      }
+
+      sf::Sound sonidoRebote;
+      sonidoRebote.setBuffer(bufferRebote);
+      sonidoRebote.setVolume(100.0);
 
   //-----------------------------------------------------------------
 
+  int numeroDeTexturaAMostrar = 0;
+  int contadorParaCambioDeTexturas  = 0;
+  int cantVecesSonidoDerrota = 0;
+
   while (ventana.isOpen())
   {
-    /*
-    EL PROBLEMA QUE TENGO, ES QUE SIEMPRE SE QUEDA EN LA ULTIMA
+    
+    /*EL PROBLEMA QUE TENGO, ES QUE SIEMPRE SE QUEDA EN LA ULTIMA
+    HACER UN CONTADOR, CUANDO LLEGA A (CANT FRAMES) CAMBIAR LA TEXTURA*/
 
-    int numeroDeTexturaAMostrar = 0;
     pelotita.setTexture(&texturasOjos[numeroDeTexturaAMostrar]);
 
-    numeroDeTexturaAMostrar = numeroDeTexturaAMostrar + 1;
+    contadorParaCambioDeTexturas = contadorParaCambioDeTexturas + 1;
+    if (contadorParaCambioDeTexturas == 60)
+    {
+      contadorParaCambioDeTexturas = 0;
+      numeroDeTexturaAMostrar = numeroDeTexturaAMostrar + 1;
+    }
+    
 
     if (numeroDeTexturaAMostrar >= TOTAL_TEXTURAS_OJOS)
     {
       numeroDeTexturaAMostrar = 0; // Reinicia a la primera textura
-    }*/
+    }
 
     if (cantVidas > 0)
     {
@@ -217,6 +238,7 @@ int main()
             // Comprobar si la pelotita ha tocado algún bloque
             if (pelotita.getGlobalBounds().intersects(bloques[i][j].getGlobalBounds()))
             {
+              sonidoRebote.play();
               // Invertir la dirección de la pelota
               diff.y = -diff.y;
               obtenerColor = bloques[i][j].getFillColor();
@@ -264,9 +286,7 @@ int main()
       {
         ventana.close(); // Cerrar la ventana
       }*/
-
-      // sonidoDerrota.play();
-
+      
       Event event = Event();
 
       while (ventana.pollEvent(event))
@@ -285,6 +305,13 @@ int main()
       textoDerrota.setPosition({150, 180});                                          // Establece la posición
 
       ventana.draw(textoDerrota);
+
+      if (cantVecesSonidoDerrota < 1)
+      {
+        sonidoDerrota.play();
+        cantVecesSonidoDerrota = cantVecesSonidoDerrota + 1;
+      }
+
     }
 
     ventana.display();
@@ -357,7 +384,7 @@ RectangleShape crearBarrita()
 
 CircleShape crearPelotita()
 {
-  CircleShape pelotita = CircleShape(10);
+  CircleShape pelotita = CircleShape(15);
   pelotita.setFillColor(Color::Green);
   pelotita.setOrigin({75.f, 75.f});
   pelotita.setPosition({(ANCHO_VENT / 2.f), ALTO_VENT / 2.f});
