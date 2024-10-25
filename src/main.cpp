@@ -1,3 +1,4 @@
+ 
 #include "sfml-utn-inspt.h"
 
 /*
@@ -113,7 +114,8 @@ int main()
     {
       bloques[i][j].setSize(sf::Vector2f(50, 20));         // Tamaño del bloque
       bloques[i][j].setPosition(j * 60 + 15, i * 30 + 15); // Espaciado
-      bloques[i][j].setFillColor(colorArray[rand() % 5]);  // Color del bloque
+      bloques[i][j].setFillColor(sf::Color::White); //PARA USAR EN LINUX - Color del bloque
+      //bloques[i][j].setFillColor(colorArray[rand() % 5]);  // PARA USAR EN WINDOWS - Color del bloque
     }
   }
 
@@ -166,13 +168,10 @@ int main()
   int numeroDeTexturaAMostrar = 0;
   int contadorParaCambioDeTexturas  = 0;
   int cantVecesSonidoDerrota = 0;
+  int contadorDeBloquesEliminados = 0;
 
   while (ventana.isOpen())
   {
-    
-    /*EL PROBLEMA QUE TENGO, ES QUE SIEMPRE SE QUEDA EN LA ULTIMA
-    HACER UN CONTADOR, CUANDO LLEGA A (CANT FRAMES) CAMBIAR LA TEXTURA*/
-
     pelotita.setTexture(&texturasOjos[numeroDeTexturaAMostrar]);
 
     contadorParaCambioDeTexturas = contadorParaCambioDeTexturas + 1;
@@ -181,16 +180,14 @@ int main()
       contadorParaCambioDeTexturas = 0;
       numeroDeTexturaAMostrar = numeroDeTexturaAMostrar + 1;
     }
-    
 
     if (numeroDeTexturaAMostrar >= TOTAL_TEXTURAS_OJOS)
     {
       numeroDeTexturaAMostrar = 0; // Reinicia a la primera textura
     }
 
-    if (cantVidas > 0)
+    if (cantVidas > 0) //&& contadorDeBloquesEliminados != (FILAS * COLUMNAS))
     {
-
       leer_eventos(ventana, barrita);
 
       if (colision_con_ventana(pelotita, IZQUIERDO))
@@ -201,19 +198,28 @@ int main()
       {
         diff.x = -VELOCIDAD;
       }
-
-      if (colision_con_ventana(pelotita, SUPERIOR))
+      else if (colision_con_ventana(pelotita, SUPERIOR))
       {
         diff.y = VELOCIDAD;
       }
       else if (colision_con_ventana(pelotita, INFERIOR))
       {
-        pelotita.setPosition({(ANCHO_VENT / 2.f), ALTO_VENT / 2.f});
-        if (cantVidas > 0)
-        {
-          cantVidas = cantVidas - 1;
-        }
+      pelotita.setPosition({(ANCHO_VENT / 2.f), ALTO_VENT / 2.f});
+      ventana.draw(pelotita);
+
+        cantVidas = cantVidas - 1;
         diff.y = -VELOCIDAD;
+        if (cantVidas != 0)
+        {
+          Event evento = Event();
+          while ((evento.key.code == Keyboard::E))
+          {
+              if (evento.key.code == Keyboard::E)
+              {
+                diff.y = -VELOCIDAD;
+              }
+          }
+        }
       }
 
       if (colision_con_barrita(pelotita, barrita) && (controlRebotes % 2 == 0))
@@ -245,6 +251,8 @@ int main()
               pelotita.setFillColor(obtenerColor);
               //   "Eliminar" el bloque (ponemos su tamaño a cero)
               bloques[i][j].setSize(sf::Vector2f(0, 0));
+
+              contadorDeBloquesEliminados = contadorDeBloquesEliminados + 1;
             }
           }
         }
@@ -273,8 +281,9 @@ int main()
       {
         ventana.draw(cantVidasTexto[cantVidas]);
       }
+
     }
-    else
+    else if (cantVidas < 1)
     {
       /*sf::Clock clock;
 
@@ -286,7 +295,7 @@ int main()
       {
         ventana.close(); // Cerrar la ventana
       }*/
-      
+
       Event event = Event();
 
       while (ventana.pollEvent(event))
@@ -313,6 +322,27 @@ int main()
       }
 
     }
+    else{
+      Event event = Event();
+
+      while (ventana.pollEvent(event))
+      {
+        if (event.type == Event::Closed)
+        {
+          ventana.close();
+        }
+      }
+      ventana.clear(sf::Color::Black);
+      sf::Text textoVictoria;
+      textoVictoria.setFont(fuente);                                                  // Establece la fuente
+      textoVictoria.setString("\tGANASTE! :)\nFELICITACIONES!\nCIERRA LA VENTANA\nGRACIAS POR JUGAR"); // Establece el texto
+      textoVictoria.setCharacterSize(50);                                             // Establece el tamaño del texto
+      textoVictoria.setFillColor(sf::Color::Green);                                     // Establece el color del texto
+      textoVictoria.setPosition({150, 180});                                          // Establece la posición
+
+      ventana.draw(textoVictoria);
+      }
+
 
     ventana.display();
   }
