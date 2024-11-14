@@ -1,4 +1,3 @@
- 
 #include "sfml-utn-inspt.h"
 
 /*
@@ -55,6 +54,7 @@ CircleShape crearPelotita();
 Font cargarFuente();
 Text atributosTexto(String valor, Font fuente, Vector2f posiciones);
 Texture cargarTextura(String ruta);
+void updateBallDirection(CircleShape& pelotita, RectangleShape& barrita, Vector2f& diff);
 
 int main()
 {
@@ -204,36 +204,38 @@ int main()
       }
       else if (colision_con_ventana(pelotita, INFERIOR))
       {
-      pelotita.setPosition({(ANCHO_VENT / 2.f), ALTO_VENT / 2.f});
-      ventana.draw(pelotita);
-
-        cantVidas = cantVidas - 1;
-        diff.y = -VELOCIDAD;
-        if (cantVidas != 0)
+        bool stop = true;
+        while (stop)
         {
-          Event evento = Event();
-          while ((evento.key.code == Keyboard::E))
+          if (Keyboard::isKeyPressed(Keyboard::Space))
           {
-              if (evento.key.code == Keyboard::E)
-              {
-                diff.y = -VELOCIDAD;
-              }
+            stop = false;
+            pelotita.setPosition({(ANCHO_VENT / 2.f), ALTO_VENT / 2.f});
+
+          if (cantVidas > 0)
+          {
+            cantVidas = cantVidas - 1;
+          }
+            diff.y = -VELOCIDAD;
           }
         }
       }
 
-      if (colision_con_barrita(pelotita, barrita) && (controlRebotes % 2 == 0))
+
+
+      if (colision_con_barrita(pelotita, barrita))
       {
-        diff.x = +VELOCIDAD;
+        updateBallDirection(pelotita, barrita, diff);
+        /*diff.x = +VELOCIDAD;
         diff.y = -VELOCIDAD;
-        controlRebotes = controlRebotes + 1;
+        controlRebotes = controlRebotes + 1;*/
       }
-      else if (colision_con_barrita(pelotita, barrita) && (controlRebotes % 2 != 0))
+      /*else if (colision_con_barrita(pelotita, barrita) && (controlRebotes % 2 != 0))
       {
         diff.x = -VELOCIDAD;
         diff.y = -VELOCIDAD;
         controlRebotes = controlRebotes - 1;
-      }
+      }*/
 
       for (int i = 0; i < FILAS; ++i)
       {
@@ -456,4 +458,16 @@ Texture cargarTextura(String ruta)
   }
 
   return textura;
+}
+
+void updateBallDirection(CircleShape& pelotita, RectangleShape& barrita, Vector2f& diff) {
+    // Suponiendo que el punto (0, 0) está en la esquina superior izquierda
+    // y que la pelota golpea la barrita en la parte superior
+    float relativeIntersectX = (barrita.getPosition().x + (barrita.getSize().x / 2)) - pelotita.getPosition().x;
+    float normalizedRelativeIntersectionX = (relativeIntersectX / (barrita.getSize().x / 2));
+    float bounceAngle = normalizedRelativeIntersectionX * (M_PI / 4); // 45 grados máximo
+
+    // Ajustar la velocidad de la pelota basándose en el ángulo de rebote
+    diff.x = diff.x * cos(bounceAngle);
+    diff.y = -fabs(diff.y) * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
 }
