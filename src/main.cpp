@@ -8,7 +8,7 @@ const unsigned int ALTO_VENT = 600;
 const unsigned int FRAMERATE = 60;
 
 // lee los eventos (clicks, posición del mouse, redimensión de la ventana, etc)
-void leer_eventos(RenderWindow &window, RectangleShape &barrita);
+int leer_eventos(RenderWindow &window, RectangleShape &barrita);
 
 // PARAMETROS DE LA BARRITA
 const float VELOCIDAD = 3.f;
@@ -54,7 +54,7 @@ CircleShape crearPelotita();
 Font cargarFuente();
 Text atributosTexto(String valor, Font fuente, Vector2f posiciones);
 Texture cargarTextura(String ruta);
-void updateBallDirection(CircleShape& pelotita, RectangleShape& barrita, Vector2f& diff);
+void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita);
 
 int main()
 {
@@ -114,8 +114,8 @@ int main()
     {
       bloques[i][j].setSize(sf::Vector2f(50, 20));         // Tamaño del bloque
       bloques[i][j].setPosition(j * 60 + 15, i * 30 + 15); // Espaciado
-      bloques[i][j].setFillColor(sf::Color::White); //PARA USAR EN LINUX - Color del bloque
-      //bloques[i][j].setFillColor(colorArray[rand() % 5]);  // PARA USAR EN WINDOWS - Color del bloque
+      bloques[i][j].setFillColor(sf::Color::White);        // PARA USAR EN LINUX - Color del bloque
+      // bloques[i][j].setFillColor(colorArray[rand() % 5]);  // PARA USAR EN WINDOWS - Color del bloque
     }
   }
 
@@ -123,7 +123,7 @@ int main()
 
   // ------------------------------ TEXTURAS -----------------------------------------
 
-  //Texturas de ojos que giran, para la pelotita
+  // Texturas de ojos que giran, para la pelotita
   sf::Texture texturasOjos[5];
 
   texturasOjos[0] = cargarTextura("../recursos/kenney_googly-eyes/PNG/googly-a.png");
@@ -132,7 +132,7 @@ int main()
   texturasOjos[3] = cargarTextura("../recursos/kenney_googly-eyes/PNG/googly-d.png");
   texturasOjos[4] = cargarTextura("../recursos/kenney_googly-eyes/PNG/googly-e.png");
 
-  //Textura del fondo
+  // Textura del fondo
   sf::Texture texturaFondo;
 
   texturaFondo = cargarTextura("../recursos/fondo.jpg");
@@ -144,29 +144,31 @@ int main()
   // ----------------------- SONIDOS --------------------------------
 
   sf::SoundBuffer bufferDerrota;
-      if (!bufferDerrota.loadFromFile("../recursos/Sonidos/SuperMarioDerrota.wav"))
-      {
-        std::cerr << "Error al cargar el buffer" << std::endl;
-      }
+  if (!bufferDerrota.loadFromFile("../recursos/Sonidos/SuperMarioDerrota.wav"))
+  {
+    std::cerr << "Error al cargar el buffer" << std::endl;
+  }
 
-      sf::Sound sonidoDerrota;
-      sonidoDerrota.setBuffer(bufferDerrota);
-      sonidoDerrota.setVolume(100.0);
+  sf::Sound sonidoDerrota;
+  sonidoDerrota.setBuffer(bufferDerrota);
+  sonidoDerrota.setVolume(100.0);
 
-    sf::SoundBuffer bufferRebote;
-      if (!bufferRebote.loadFromFile("../recursos/Sonidos/SonidoReboteDePelota.wav"))
-      {
-        std::cerr << "Error al cargar el buffer" << std::endl;
-      }
+  sf::SoundBuffer bufferRebote;
+  if (!bufferRebote.loadFromFile("../recursos/Sonidos/SonidoReboteDePelota.wav"))
+  {
+    std::cerr << "Error al cargar el buffer" << std::endl;
+  }
 
-      sf::Sound sonidoRebote;
-      sonidoRebote.setBuffer(bufferRebote);
-      sonidoRebote.setVolume(100.0);
+  sf::Sound sonidoRebote;
+  sonidoRebote.setBuffer(bufferRebote);
+  sonidoRebote.setVolume(100.0);
 
   //-----------------------------------------------------------------
 
+  sf::Texture texturaBarrita;
+
   int numeroDeTexturaAMostrar = 0;
-  int contadorParaCambioDeTexturas  = 0;
+  int contadorParaCambioDeTexturas = 0;
   int cantVecesSonidoDerrota = 0;
   int contadorDeBloquesEliminados = 0;
 
@@ -175,7 +177,7 @@ int main()
     pelotita.setTexture(&texturasOjos[numeroDeTexturaAMostrar]);
 
     contadorParaCambioDeTexturas = contadorParaCambioDeTexturas + 1;
-    if (contadorParaCambioDeTexturas == 60)
+    if (contadorParaCambioDeTexturas == 15)
     {
       contadorParaCambioDeTexturas = 0;
       numeroDeTexturaAMostrar = numeroDeTexturaAMostrar + 1;
@@ -188,7 +190,17 @@ int main()
 
     if (cantVidas > 0) //&& contadorDeBloquesEliminados != (FILAS * COLUMNAS))
     {
-      leer_eventos(ventana, barrita);
+      // 1 = DERECHA / 0 = IZQUIERDA
+      if (leer_eventos(ventana, barrita) == 1)
+      {
+        texturaBarrita = cargarTextura("../recursos/coheteDerecha.png");
+        barrita.setTexture(&texturaBarrita);
+      }
+      else
+      {
+        texturaBarrita = cargarTextura("../recursos/coheteIzquierda.png");
+        barrita.setTexture(&texturaBarrita);
+      }
 
       if (colision_con_ventana(pelotita, IZQUIERDO))
       {
@@ -212,20 +224,18 @@ int main()
             stop = false;
             pelotita.setPosition({(ANCHO_VENT / 2.f), ALTO_VENT / 2.f});
 
-          if (cantVidas > 0)
-          {
-            cantVidas = cantVidas - 1;
-          }
+            if (cantVidas > 0)
+            {
+              cantVidas = cantVidas - 1;
+            }
             diff.y = -VELOCIDAD;
           }
         }
       }
 
-
-
       if (colision_con_barrita(pelotita, barrita))
       {
-        updateBallDirection(pelotita, barrita, diff);
+        updateBallDirection(pelotita, barrita);
         /*diff.x = +VELOCIDAD;
         diff.y = -VELOCIDAD;
         controlRebotes = controlRebotes + 1;*/
@@ -253,8 +263,12 @@ int main()
               pelotita.setFillColor(obtenerColor);
               //   "Eliminar" el bloque (ponemos su tamaño a cero)
               bloques[i][j].setSize(sf::Vector2f(0, 0));
-
               contadorDeBloquesEliminados = contadorDeBloquesEliminados + 1;
+              std::cout << contadorDeBloquesEliminados << std::endl;
+              if (contadorDeBloquesEliminados == 78)
+              {
+                std::cout << "HOLA" << std::endl;
+              }
             }
           }
         }
@@ -283,9 +297,9 @@ int main()
       {
         ventana.draw(cantVidasTexto[cantVidas]);
       }
-
     }
-    else if (cantVidas < 1)
+
+    if (cantVidas < 1)
     {
       /*sf::Clock clock;
 
@@ -322,36 +336,37 @@ int main()
         sonidoDerrota.play();
         cantVecesSonidoDerrota = cantVecesSonidoDerrota + 1;
       }
-
     }
-    else{
-      Event event = Event();
 
-      while (ventana.pollEvent(event))
+    if (contadorDeBloquesEliminados == (FILAS * COLUMNAS))
+    {
+      Event e = Event();
+
+      while (ventana.pollEvent(e))
       {
-        if (event.type == Event::Closed)
+        if (e.type == Event::Closed)
         {
           ventana.close();
         }
       }
       ventana.clear(sf::Color::Black);
       sf::Text textoVictoria;
-      textoVictoria.setFont(fuente);                                                  // Establece la fuente
+      textoVictoria.setFont(fuente);                                                                   // Establece la fuente
       textoVictoria.setString("\tGANASTE! :)\nFELICITACIONES!\nCIERRA LA VENTANA\nGRACIAS POR JUGAR"); // Establece el texto
-      textoVictoria.setCharacterSize(50);                                             // Establece el tamaño del texto
-      textoVictoria.setFillColor(sf::Color::Green);                                     // Establece el color del texto
-      textoVictoria.setPosition({150, 180});                                          // Establece la posición
+      textoVictoria.setCharacterSize(50);                                                              // Establece el tamaño del texto
+      textoVictoria.setFillColor(sf::Color::Green);                                                    // Establece el color del texto
+      textoVictoria.setPosition({150, 180});                                                           // Establece la posición
 
       ventana.draw(textoVictoria);
-      }
-
+    }
 
     ventana.display();
   }
 }
 
-void leer_eventos(RenderWindow &window, RectangleShape &barrita)
+int leer_eventos(RenderWindow &window, RectangleShape &barrita)
 {
+  int sentido;
   Vector2f posicion;
   Event event = Event();
   while (window.pollEvent(event))
@@ -368,6 +383,7 @@ void leer_eventos(RenderWindow &window, RectangleShape &barrita)
         {
           posicion = barrita.getPosition();
           barrita.setPosition({posicion.x + 15.f, posicion.y});
+          sentido = 0;
         }
       }
 
@@ -377,10 +393,12 @@ void leer_eventos(RenderWindow &window, RectangleShape &barrita)
         {
           posicion = barrita.getPosition();
           barrita.setPosition({posicion.x - 15.f, posicion.y});
+          sentido = 1;
         }
       }
     }
   }
+  return sentido;
 }
 
 bool colision_con_ventana(CircleShape &r, borde_t borde)
@@ -407,10 +425,9 @@ bool colision_con_barrita(CircleShape &pelotita, RectangleShape &barrita)
 RectangleShape crearBarrita()
 {
   RectangleShape barrita = RectangleShape({ANCHO_BARRITA, ALTO_BARRITA});
-  barrita.setFillColor(Color::Red);
+  //barrita.setFillColor(Color::Red);
   barrita.setOrigin({75.f, 75.f});
   barrita.setPosition({(ANCHO_VENT / 2.f) + 10, ALTO_VENT - 20});
-
   return barrita;
 }
 
@@ -460,7 +477,7 @@ Texture cargarTextura(String ruta)
   return textura;
 }
 
-void updateBallDirection(CircleShape& pelotita, RectangleShape& barrita, Vector2f& diff) {
+/*void updateBallDirection(CircleShape& pelotita, RectangleShape& barrita, Vector2f& diff) {
     // Suponiendo que el punto (0, 0) está en la esquina superior izquierda
     // y que la pelota golpea la barrita en la parte superior
     float relativeIntersectX = (barrita.getPosition().x + (barrita.getSize().x / 2)) - pelotita.getPosition().x;
@@ -470,4 +487,23 @@ void updateBallDirection(CircleShape& pelotita, RectangleShape& barrita, Vector2
     // Ajustar la velocidad de la pelota basándose en el ángulo de rebote
     diff.x = diff.x * cos(bounceAngle);
     diff.y = -fabs(diff.y) * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
+}*/
+
+void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita)
+{
+  // Suponiendo que el punto (0, 0) está en la esquina superior izquierda
+  // y que la pelota golpea la barrita en la parte superior
+  float relativeIntersectX = (barrita.getPosition().x + (barrita.getSize().x / 2)) - pelotita.getPosition().x;
+  float normalizedRelativeIntersectionX = (relativeIntersectX / (barrita.getSize().x / 2));
+  float bounceAngle = normalizedRelativeIntersectionX * (M_PI / 4); // 45 grados máximo
+
+  // Obtener la posición actual de la pelota
+  sf::Vector2f posicionPelota = pelotita.getPosition();
+
+  // Ajustar la velocidad de la pelota basándose en el ángulo de rebote
+  posicionPelota.x = posicionPelota.x * cos(bounceAngle);
+  posicionPelota.y = -fabs(posicionPelota.y) * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
+
+  // Asignar la nueva posición a pelotita
+  pelotita.setPosition(posicionPelota);
 }
