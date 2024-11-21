@@ -54,7 +54,7 @@ CircleShape crearPelotita();
 Font cargarFuente();
 Text atributosTexto(String valor, Font fuente, Vector2f posiciones);
 Texture cargarTextura(String ruta);
-void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita);
+void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f &diff);
 
 int main()
 {
@@ -171,6 +171,7 @@ int main()
   int contadorParaCambioDeTexturas = 0;
   int cantVecesSonidoDerrota = 0;
   int contadorDeBloquesEliminados = 0;
+  int banderaCantColisionesConBarrita = 0;
 
   while (ventana.isOpen())
   {
@@ -212,6 +213,7 @@ int main()
       }
       else if (colision_con_ventana(pelotita, SUPERIOR))
       {
+        banderaCantColisionesConBarrita = 0;
         diff.y = VELOCIDAD;
       }
       else if (colision_con_ventana(pelotita, INFERIOR))
@@ -233,11 +235,13 @@ int main()
         }
       }
 
-      if (colision_con_barrita(pelotita, barrita))
+      if (colision_con_barrita(pelotita, barrita) && banderaCantColisionesConBarrita == 0)
       {
-        updateBallDirection(pelotita, barrita);
-        /*diff.x = +VELOCIDAD;
-        diff.y = -VELOCIDAD;
+        // cout << pelotita.getPosition().x << endl;
+        updateBallDirection(pelotita, barrita, diff);
+        banderaCantColisionesConBarrita = 1;
+        /*diff.x = +VELOCIDAD + 0.5;
+        diff.y = -VELOCIDAD - 0.5;
         controlRebotes = controlRebotes + 1;*/
       }
       /*else if (colision_con_barrita(pelotita, barrita) && (controlRebotes % 2 != 0))
@@ -264,11 +268,12 @@ int main()
               //   "Eliminar" el bloque (ponemos su tamaño a cero)
               bloques[i][j].setSize(sf::Vector2f(0, 0));
               contadorDeBloquesEliminados = contadorDeBloquesEliminados + 1;
-              std::cout << contadorDeBloquesEliminados << std::endl;
+              banderaCantColisionesConBarrita = 0;
+              /*std::cout << contadorDeBloquesEliminados << std::endl;
               if (contadorDeBloquesEliminados == 78)
               {
                 std::cout << "HOLA" << std::endl;
-              }
+              }*/
             }
           }
         }
@@ -425,7 +430,7 @@ bool colision_con_barrita(CircleShape &pelotita, RectangleShape &barrita)
 RectangleShape crearBarrita()
 {
   RectangleShape barrita = RectangleShape({ANCHO_BARRITA, ALTO_BARRITA});
-  //barrita.setFillColor(Color::Red);
+  // barrita.setFillColor(Color::Red);
   barrita.setOrigin({75.f, 75.f});
   barrita.setPosition({(ANCHO_VENT / 2.f) + 10, ALTO_VENT - 20});
   return barrita;
@@ -489,7 +494,7 @@ Texture cargarTextura(String ruta)
     diff.y = -fabs(diff.y) * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
 }*/
 
-void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita)
+/*void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f& diff)
 {
   // Suponiendo que el punto (0, 0) está en la esquina superior izquierda
   // y que la pelota golpea la barrita en la parte superior
@@ -501,9 +506,68 @@ void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita)
   sf::Vector2f posicionPelota = pelotita.getPosition();
 
   // Ajustar la velocidad de la pelota basándose en el ángulo de rebote
-  posicionPelota.x = posicionPelota.x * cos(bounceAngle);
-  posicionPelota.y = -fabs(posicionPelota.y) * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
+  //posicionPelota.x = posicionPelota.x * cos(bounceAngle);
+  //posicionPelota.y = -fabs(posicionPelota.y) * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
+  float nuevaVelocidad = sqrt(pow(pelotita.getPosition().x,2)+pow(pelotita.getPosition().y,2));
 
+  diff.x = nuevaVelocidad * cos(bounceAngle);
+  diff.y = -nuevaVelocidad * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
   // Asignar la nueva posición a pelotita
-  pelotita.setPosition(posicionPelota);
+  //pelotita.setPosition(posicionPelota);
+  pelotita.move(diff);
+}*/
+
+/*void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f& diff)
+{
+    // Suponiendo que el punto (0, 0) está en la esquina superior izquierda
+    // y que la pelota golpea la barrita en la parte superior
+    float relativeIntersectX = (barrita.getPosition().x + (barrita.getSize().x / 2)) - pelotita.getPosition().x;
+    float normalizedRelativeIntersectionX = (relativeIntersectX / (barrita.getSize().x / 2));
+    float bounceAngle = normalizedRelativeIntersectionX * (M_PI / 4); // 45 grados máximo
+    cout << bounceAngle << endl;
+
+    if (bounceAngle < 0)
+    {
+      bounceAngle = bounceAngle + 90;
+    }
+
+    // Obtener la velocidad actual de la pelota (suponiendo que diff contiene la velocidad)
+    float nuevaVelocidad = sqrt(pow(diff.x, 2) + pow(diff.y, 2)); // Magnitud de la velocidad
+
+    // Calcular la nueva dirección de la pelota usando el ángulo de rebote
+    // Adjustamos solo el componente X (horizontal) y Y (vertical) según el ángulo de rebote
+    diff.x = nuevaVelocidad * cos(bounceAngle); // Componente horizontal de la velocidad
+    diff.y = -nuevaVelocidad * sin(bounceAngle); // Componente vertical de la velocidad (invertimos el signo para reflejar el rebote)
+
+    // Actualizar la posición de la pelota basándose en la nueva dirección (diff)
+    pelotita.move(diff);
+}*/
+
+void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f &diff)
+{
+  // Calcular la intersección relativa de la pelota con la barra
+  float relativeIntersectX = (barrita.getPosition().x + (barrita.getSize().x / 2)) - pelotita.getPosition().x;
+  float normalizedRelativeIntersectionX = (relativeIntersectX / (barrita.getSize().x / 2));
+
+  // Ángulo de rebote: El ángulo de la pelota depende de donde golpea la barra
+  // Rango de -M_PI a M_PI, reflejando la pelota en el eje horizontal
+  float bounceAngle = normalizedRelativeIntersectionX * M_PI; // Rango de -180 a 180 grados
+
+  // Obtener la dirección del movimiento de la pelota (velocidad)
+  float angleOfIncidence = atan2(diff.y, diff.x); // Ángulo de incidencia de la pelota
+
+  // Ahora reflejamos solo la componente horizontal (X), manteniendo la componente vertical (Y) negativa
+  float reflectedAngle = bounceAngle; // No sumamos al ángulo de incidencia
+
+  // Obtener la magnitud de la velocidad
+  float nuevaVelocidad = sqrt(pow(diff.x, 2) + pow(diff.y, 2)); // Magnitud de la velocidad
+
+  // Calcular las nuevas componentes de la dirección (reflejada)
+  diff.x = nuevaVelocidad * cos(reflectedAngle); // Componente horizontal de la velocidad (reflejada)
+
+  // Aseguramos que `diff.y` sea negativo (siempre hacia arriba después del rebote)
+  diff.y = -fabs(nuevaVelocidad * sin(reflectedAngle)); // Componente vertical (siempre negativa, hacia arriba)
+
+  // Actualizar la posición de la pelota basándose en la nueva dirección
+  pelotita.move(diff);
 }
