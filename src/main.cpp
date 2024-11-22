@@ -93,6 +93,20 @@ int main()
     cantVidasTexto[i].setFillColor(sf::Color::White);            // Establece el color del texto
     cantVidasTexto[i].setPosition({posiciones.x, posiciones.y}); // Establece la posición
   }
+
+  sf::Text puntajeTexto;
+  puntajeTexto.setFont(fuente);                           // Establece la fuente
+  puntajeTexto.setString("SCORE: ");                      // Establece el texto
+  puntajeTexto.setCharacterSize(24);                      // Establece el tamaño del texto
+  puntajeTexto.setFillColor(sf::Color::White);            // Establece el color del texto
+  puntajeTexto.setPosition({posiciones.x-100, posiciones.y + 50}); // Establece la posición
+
+  sf::Text puntaje;
+  puntaje.setFont(fuente);                           // Establece la fuente
+  puntaje.setString("0");                      // Establece el texto
+  puntaje.setCharacterSize(24);                      // Establece el tamaño del texto
+  puntaje.setFillColor(sf::Color::White);            // Establece el color del texto
+  puntaje.setPosition({posiciones.x, posiciones.y + 50}); // Establece la posición
   //-------------------------------------------------------------------------------------------------
 
   // ---------------------- CREACIÓN DE ELEMENTOS ---------------------------
@@ -114,8 +128,8 @@ int main()
     {
       bloques[i][j].setSize(sf::Vector2f(50, 20));         // Tamaño del bloque
       bloques[i][j].setPosition(j * 60 + 15, i * 30 + 15); // Espaciado
-      bloques[i][j].setFillColor(sf::Color::White);        // PARA USAR EN LINUX - Color del bloque
-      // bloques[i][j].setFillColor(colorArray[rand() % 5]);  // PARA USAR EN WINDOWS - Color del bloque
+      //bloques[i][j].setFillColor(sf::Color::White);        // PARA USAR EN LINUX - Color del bloque
+      bloques[i][j].setFillColor(colorArray[rand() % 5]);  // PARA USAR EN WINDOWS - Color del bloque
     }
   }
 
@@ -172,9 +186,38 @@ int main()
   int cantVecesSonidoDerrota = 0;
   int contadorDeBloquesEliminados = 0;
   int banderaCantColisionesConBarrita = 0;
+  int score = 0;
+  bool mostrarInicio = true;
 
   while (ventana.isOpen())
   {
+        while (mostrarInicio)
+        {
+          ventana.clear(sf::Color::Black);
+          sf::Text textoInicio;
+          textoInicio.setFont(fuente);                                                                   // Establece la fuente
+          textoInicio.setString("\t-- ARKANOID --\nPRESIONE [ESPACIO]\nPARA INICIAR");                   // Establece el texto
+          textoInicio.setCharacterSize(50);                                                              // Establece el tamaño del texto
+          textoInicio.setFillColor(sf::Color::Blue);                                                    // Establece el color del texto
+          textoInicio.setPosition({150, 180});                                                           // Establece la posición
+
+          ventana.draw(textoInicio);
+
+          Event event = Event();
+          while (ventana.pollEvent(event))
+          {
+            if (event.type == Event::Closed)
+            {
+              ventana.close();
+            }
+          }
+          if (Keyboard::isKeyPressed(Keyboard::Space))
+          {
+            mostrarInicio = false;
+          }
+        }
+    
+
     pelotita.setTexture(&texturasOjos[numeroDeTexturaAMostrar]);
 
     contadorParaCambioDeTexturas = contadorParaCambioDeTexturas + 1;
@@ -221,6 +264,14 @@ int main()
         bool stop = true;
         while (stop)
         {
+          Event event = Event();
+          while (ventana.pollEvent(event))
+          {
+            if (event.type == Event::Closed)
+            {
+              ventana.close();
+            }
+          }
           if (Keyboard::isKeyPressed(Keyboard::Space))
           {
             stop = false;
@@ -269,6 +320,7 @@ int main()
               bloques[i][j].setSize(sf::Vector2f(0, 0));
               contadorDeBloquesEliminados = contadorDeBloquesEliminados + 1;
               banderaCantColisionesConBarrita = 0;
+              score = score + 5;
               /*std::cout << contadorDeBloquesEliminados << std::endl;
               if (contadorDeBloquesEliminados == 78)
               {
@@ -278,6 +330,8 @@ int main()
           }
         }
       }
+
+      puntaje.setString(std::to_string(score));
       pelotita.move(diff);
 
       ventana.clear();
@@ -286,6 +340,8 @@ int main()
       ventana.draw(barrita);
       ventana.draw(pelotita);
       ventana.draw(vidasTexto);
+      ventana.draw(puntajeTexto);
+      ventana.draw(puntaje);
 
       for (int i = 0; i < FILAS; ++i)
       {
@@ -482,67 +538,6 @@ Texture cargarTextura(String ruta)
   return textura;
 }
 
-/*void updateBallDirection(CircleShape& pelotita, RectangleShape& barrita, Vector2f& diff) {
-    // Suponiendo que el punto (0, 0) está en la esquina superior izquierda
-    // y que la pelota golpea la barrita en la parte superior
-    float relativeIntersectX = (barrita.getPosition().x + (barrita.getSize().x / 2)) - pelotita.getPosition().x;
-    float normalizedRelativeIntersectionX = (relativeIntersectX / (barrita.getSize().x / 2));
-    float bounceAngle = normalizedRelativeIntersectionX * (M_PI / 4); // 45 grados máximo
-
-    // Ajustar la velocidad de la pelota basándose en el ángulo de rebote
-    diff.x = diff.x * cos(bounceAngle);
-    diff.y = -fabs(diff.y) * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
-}*/
-
-/*void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f& diff)
-{
-  // Suponiendo que el punto (0, 0) está en la esquina superior izquierda
-  // y que la pelota golpea la barrita en la parte superior
-  float relativeIntersectX = (barrita.getPosition().x + (barrita.getSize().x / 2)) - pelotita.getPosition().x;
-  float normalizedRelativeIntersectionX = (relativeIntersectX / (barrita.getSize().x / 2));
-  float bounceAngle = normalizedRelativeIntersectionX * (M_PI / 4); // 45 grados máximo
-
-  // Obtener la posición actual de la pelota
-  sf::Vector2f posicionPelota = pelotita.getPosition();
-
-  // Ajustar la velocidad de la pelota basándose en el ángulo de rebote
-  //posicionPelota.x = posicionPelota.x * cos(bounceAngle);
-  //posicionPelota.y = -fabs(posicionPelota.y) * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
-  float nuevaVelocidad = sqrt(pow(pelotita.getPosition().x,2)+pow(pelotita.getPosition().y,2));
-
-  diff.x = nuevaVelocidad * cos(bounceAngle);
-  diff.y = -nuevaVelocidad * sin(bounceAngle); // invertimos la dirección y mantenemos la magnitud
-  // Asignar la nueva posición a pelotita
-  //pelotita.setPosition(posicionPelota);
-  pelotita.move(diff);
-}*/
-
-/*void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f& diff)
-{
-    // Suponiendo que el punto (0, 0) está en la esquina superior izquierda
-    // y que la pelota golpea la barrita en la parte superior
-    float relativeIntersectX = (barrita.getPosition().x + (barrita.getSize().x / 2)) - pelotita.getPosition().x;
-    float normalizedRelativeIntersectionX = (relativeIntersectX / (barrita.getSize().x / 2));
-    float bounceAngle = normalizedRelativeIntersectionX * (M_PI / 4); // 45 grados máximo
-    cout << bounceAngle << endl;
-
-    if (bounceAngle < 0)
-    {
-      bounceAngle = bounceAngle + 90;
-    }
-
-    // Obtener la velocidad actual de la pelota (suponiendo que diff contiene la velocidad)
-    float nuevaVelocidad = sqrt(pow(diff.x, 2) + pow(diff.y, 2)); // Magnitud de la velocidad
-
-    // Calcular la nueva dirección de la pelota usando el ángulo de rebote
-    // Adjustamos solo el componente X (horizontal) y Y (vertical) según el ángulo de rebote
-    diff.x = nuevaVelocidad * cos(bounceAngle); // Componente horizontal de la velocidad
-    diff.y = -nuevaVelocidad * sin(bounceAngle); // Componente vertical de la velocidad (invertimos el signo para reflejar el rebote)
-
-    // Actualizar la posición de la pelota basándose en la nueva dirección (diff)
-    pelotita.move(diff);
-}*/
-
 void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f &diff)
 {
   // Calcular la intersección relativa de la pelota con la barra
@@ -551,7 +546,17 @@ void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, V
 
   // Ángulo de rebote: El ángulo de la pelota depende de donde golpea la barra
   // Rango de -M_PI a M_PI, reflejando la pelota en el eje horizontal
+  //cout << normalizedRelativeIntersectionX << endl;
+
   float bounceAngle = normalizedRelativeIntersectionX * M_PI; // Rango de -180 a 180 grados
+
+  cout << bounceAngle << endl;
+
+  if (bounceAngle > 3)
+  {
+    bounceAngle = bounceAngle - 1;
+  }
+  
 
   // Obtener la dirección del movimiento de la pelota (velocidad)
   float angleOfIncidence = atan2(diff.y, diff.x); // Ángulo de incidencia de la pelota
@@ -571,3 +576,4 @@ void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, V
   // Actualizar la posición de la pelota basándose en la nueva dirección
   pelotita.move(diff);
 }
+
