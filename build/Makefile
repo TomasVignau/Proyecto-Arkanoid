@@ -56,7 +56,7 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\ProyectoTallerMultimedial\sfml-template
+CMAKE_SOURCE_DIR = E:\ProyectoTallerMultimedial\sfml-template\build\_deps\sfml-src
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = E:\ProyectoTallerMultimedial\build
@@ -106,7 +106,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\" \"devel\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\" \"bin\" \"devel\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -177,22 +177,8 @@ preinstall/fast:
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -P E:\ProyectoTallerMultimedial\build\CMakeFiles\VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named UTN_INSPT_SFMLProject
-
-# Build rule for target.
-UTN_INSPT_SFMLProject: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 UTN_INSPT_SFMLProject
-.PHONY : UTN_INSPT_SFMLProject
-
-# fast build rule for target.
-UTN_INSPT_SFMLProject/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\UTN_INSPT_SFMLProject.dir\build.make CMakeFiles/UTN_INSPT_SFMLProject.dir/build
-.PHONY : UTN_INSPT_SFMLProject/fast
 
 #=============================================================================
 # Target rules for targets named sfml-system
@@ -204,7 +190,7 @@ sfml-system: cmake_check_build_system
 
 # fast build rule for target.
 sfml-system/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/build
+	$(MAKE) $(MAKESILENT) -f src\SFML\System\CMakeFiles\sfml-system.dir\build.make src/SFML/System/CMakeFiles/sfml-system.dir/build
 .PHONY : sfml-system/fast
 
 #=============================================================================
@@ -217,7 +203,7 @@ sfml-main: cmake_check_build_system
 
 # fast build rule for target.
 sfml-main/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/build
+	$(MAKE) $(MAKESILENT) -f src\SFML\Main\CMakeFiles\sfml-main.dir\build.make src/SFML/Main/CMakeFiles/sfml-main.dir/build
 .PHONY : sfml-main/fast
 
 #=============================================================================
@@ -230,7 +216,7 @@ sfml-window: cmake_check_build_system
 
 # fast build rule for target.
 sfml-window/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/build
+	$(MAKE) $(MAKESILENT) -f src\SFML\Window\CMakeFiles\sfml-window.dir\build.make src/SFML/Window/CMakeFiles/sfml-window.dir/build
 .PHONY : sfml-window/fast
 
 #=============================================================================
@@ -243,7 +229,7 @@ sfml-network: cmake_check_build_system
 
 # fast build rule for target.
 sfml-network/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/build
+	$(MAKE) $(MAKESILENT) -f src\SFML\Network\CMakeFiles\sfml-network.dir\build.make src/SFML/Network/CMakeFiles/sfml-network.dir/build
 .PHONY : sfml-network/fast
 
 #=============================================================================
@@ -256,7 +242,7 @@ sfml-graphics: cmake_check_build_system
 
 # fast build rule for target.
 sfml-graphics/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\build.make _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build
+	$(MAKE) $(MAKESILENT) -f src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build
 .PHONY : sfml-graphics/fast
 
 #=============================================================================
@@ -269,32 +255,8 @@ sfml-audio: cmake_check_build_system
 
 # fast build rule for target.
 sfml-audio/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\build.make _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/build
+	$(MAKE) $(MAKESILENT) -f src\SFML\Audio\CMakeFiles\sfml-audio.dir\build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/build
 .PHONY : sfml-audio/fast
-
-src/main.obj: src/main.cpp.obj
-.PHONY : src/main.obj
-
-# target to build an object file
-src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\UTN_INSPT_SFMLProject.dir\build.make CMakeFiles/UTN_INSPT_SFMLProject.dir/src/main.cpp.obj
-.PHONY : src/main.cpp.obj
-
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\UTN_INSPT_SFMLProject.dir\build.make CMakeFiles/UTN_INSPT_SFMLProject.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\UTN_INSPT_SFMLProject.dir\build.make CMakeFiles/UTN_INSPT_SFMLProject.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -310,16 +272,12 @@ help:
 	@echo ... package
 	@echo ... package_source
 	@echo ... rebuild_cache
-	@echo ... UTN_INSPT_SFMLProject
 	@echo ... sfml-audio
 	@echo ... sfml-graphics
 	@echo ... sfml-main
 	@echo ... sfml-network
 	@echo ... sfml-system
 	@echo ... sfml-window
-	@echo ... src/main.obj
-	@echo ... src/main.i
-	@echo ... src/main.s
 .PHONY : help
 
 
@@ -331,7 +289,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P E:\ProyectoTallerMultimedial\build\CMakeFiles\VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

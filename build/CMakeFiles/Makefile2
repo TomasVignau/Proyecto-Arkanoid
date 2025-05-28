@@ -53,7 +53,7 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\ProyectoTallerMultimedial\sfml-template
+CMAKE_SOURCE_DIR = E:\ProyectoTallerMultimedial\sfml-template\build\_deps\sfml-src
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = E:\ProyectoTallerMultimedial\build
@@ -62,339 +62,293 @@ CMAKE_BINARY_DIR = E:\ProyectoTallerMultimedial\build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/UTN_INSPT_SFMLProject.dir/all
-all: _deps/sfml-build/all
+all: src/SFML/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: _deps/sfml-build/preinstall
+preinstall: src/SFML/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/UTN_INSPT_SFMLProject.dir/clean
-clean: _deps/sfml-build/clean
+clean: src/SFML/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory _deps/sfml-build
+# Directory level rules for directory src/SFML
 
 # Recursive "all" directory target.
-_deps/sfml-build/all: _deps/sfml-build/src/SFML/all
-.PHONY : _deps/sfml-build/all
+src/SFML/all: src/SFML/System/all
+src/SFML/all: src/SFML/Main/all
+src/SFML/all: src/SFML/Window/all
+src/SFML/all: src/SFML/Network/all
+src/SFML/all: src/SFML/Graphics/all
+src/SFML/all: src/SFML/Audio/all
+.PHONY : src/SFML/all
 
 # Recursive "preinstall" directory target.
-_deps/sfml-build/preinstall: _deps/sfml-build/src/SFML/preinstall
-.PHONY : _deps/sfml-build/preinstall
+src/SFML/preinstall: src/SFML/System/preinstall
+src/SFML/preinstall: src/SFML/Main/preinstall
+src/SFML/preinstall: src/SFML/Window/preinstall
+src/SFML/preinstall: src/SFML/Network/preinstall
+src/SFML/preinstall: src/SFML/Graphics/preinstall
+src/SFML/preinstall: src/SFML/Audio/preinstall
+.PHONY : src/SFML/preinstall
 
 # Recursive "clean" directory target.
-_deps/sfml-build/clean: _deps/sfml-build/src/SFML/clean
-.PHONY : _deps/sfml-build/clean
+src/SFML/clean: src/SFML/System/clean
+src/SFML/clean: src/SFML/Main/clean
+src/SFML/clean: src/SFML/Window/clean
+src/SFML/clean: src/SFML/Network/clean
+src/SFML/clean: src/SFML/Graphics/clean
+src/SFML/clean: src/SFML/Audio/clean
+.PHONY : src/SFML/clean
 
 #=============================================================================
-# Directory level rules for directory _deps/sfml-build/src/SFML
+# Directory level rules for directory src/SFML/Audio
 
 # Recursive "all" directory target.
-_deps/sfml-build/src/SFML/all: _deps/sfml-build/src/SFML/System/all
-_deps/sfml-build/src/SFML/all: _deps/sfml-build/src/SFML/Main/all
-_deps/sfml-build/src/SFML/all: _deps/sfml-build/src/SFML/Window/all
-_deps/sfml-build/src/SFML/all: _deps/sfml-build/src/SFML/Network/all
-_deps/sfml-build/src/SFML/all: _deps/sfml-build/src/SFML/Graphics/all
-_deps/sfml-build/src/SFML/all: _deps/sfml-build/src/SFML/Audio/all
-.PHONY : _deps/sfml-build/src/SFML/all
+src/SFML/Audio/all: src/SFML/Audio/CMakeFiles/sfml-audio.dir/all
+.PHONY : src/SFML/Audio/all
 
 # Recursive "preinstall" directory target.
-_deps/sfml-build/src/SFML/preinstall: _deps/sfml-build/src/SFML/System/preinstall
-_deps/sfml-build/src/SFML/preinstall: _deps/sfml-build/src/SFML/Main/preinstall
-_deps/sfml-build/src/SFML/preinstall: _deps/sfml-build/src/SFML/Window/preinstall
-_deps/sfml-build/src/SFML/preinstall: _deps/sfml-build/src/SFML/Network/preinstall
-_deps/sfml-build/src/SFML/preinstall: _deps/sfml-build/src/SFML/Graphics/preinstall
-_deps/sfml-build/src/SFML/preinstall: _deps/sfml-build/src/SFML/Audio/preinstall
-.PHONY : _deps/sfml-build/src/SFML/preinstall
+src/SFML/Audio/preinstall:
+.PHONY : src/SFML/Audio/preinstall
 
 # Recursive "clean" directory target.
-_deps/sfml-build/src/SFML/clean: _deps/sfml-build/src/SFML/System/clean
-_deps/sfml-build/src/SFML/clean: _deps/sfml-build/src/SFML/Main/clean
-_deps/sfml-build/src/SFML/clean: _deps/sfml-build/src/SFML/Window/clean
-_deps/sfml-build/src/SFML/clean: _deps/sfml-build/src/SFML/Network/clean
-_deps/sfml-build/src/SFML/clean: _deps/sfml-build/src/SFML/Graphics/clean
-_deps/sfml-build/src/SFML/clean: _deps/sfml-build/src/SFML/Audio/clean
-.PHONY : _deps/sfml-build/src/SFML/clean
+src/SFML/Audio/clean: src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean
+.PHONY : src/SFML/Audio/clean
 
 #=============================================================================
-# Directory level rules for directory _deps/sfml-build/src/SFML/Audio
+# Directory level rules for directory src/SFML/Graphics
 
 # Recursive "all" directory target.
-_deps/sfml-build/src/SFML/Audio/all: _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/all
-.PHONY : _deps/sfml-build/src/SFML/Audio/all
+src/SFML/Graphics/all: src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all
+.PHONY : src/SFML/Graphics/all
 
 # Recursive "preinstall" directory target.
-_deps/sfml-build/src/SFML/Audio/preinstall:
-.PHONY : _deps/sfml-build/src/SFML/Audio/preinstall
+src/SFML/Graphics/preinstall:
+.PHONY : src/SFML/Graphics/preinstall
 
 # Recursive "clean" directory target.
-_deps/sfml-build/src/SFML/Audio/clean: _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Audio/clean
+src/SFML/Graphics/clean: src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/clean
+.PHONY : src/SFML/Graphics/clean
 
 #=============================================================================
-# Directory level rules for directory _deps/sfml-build/src/SFML/Graphics
+# Directory level rules for directory src/SFML/Main
 
 # Recursive "all" directory target.
-_deps/sfml-build/src/SFML/Graphics/all: _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all
-.PHONY : _deps/sfml-build/src/SFML/Graphics/all
+src/SFML/Main/all: src/SFML/Main/CMakeFiles/sfml-main.dir/all
+.PHONY : src/SFML/Main/all
 
 # Recursive "preinstall" directory target.
-_deps/sfml-build/src/SFML/Graphics/preinstall:
-.PHONY : _deps/sfml-build/src/SFML/Graphics/preinstall
+src/SFML/Main/preinstall:
+.PHONY : src/SFML/Main/preinstall
 
 # Recursive "clean" directory target.
-_deps/sfml-build/src/SFML/Graphics/clean: _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Graphics/clean
+src/SFML/Main/clean: src/SFML/Main/CMakeFiles/sfml-main.dir/clean
+.PHONY : src/SFML/Main/clean
 
 #=============================================================================
-# Directory level rules for directory _deps/sfml-build/src/SFML/Main
+# Directory level rules for directory src/SFML/Network
 
 # Recursive "all" directory target.
-_deps/sfml-build/src/SFML/Main/all: _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/all
-.PHONY : _deps/sfml-build/src/SFML/Main/all
+src/SFML/Network/all: src/SFML/Network/CMakeFiles/sfml-network.dir/all
+.PHONY : src/SFML/Network/all
 
 # Recursive "preinstall" directory target.
-_deps/sfml-build/src/SFML/Main/preinstall:
-.PHONY : _deps/sfml-build/src/SFML/Main/preinstall
+src/SFML/Network/preinstall:
+.PHONY : src/SFML/Network/preinstall
 
 # Recursive "clean" directory target.
-_deps/sfml-build/src/SFML/Main/clean: _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Main/clean
+src/SFML/Network/clean: src/SFML/Network/CMakeFiles/sfml-network.dir/clean
+.PHONY : src/SFML/Network/clean
 
 #=============================================================================
-# Directory level rules for directory _deps/sfml-build/src/SFML/Network
+# Directory level rules for directory src/SFML/System
 
 # Recursive "all" directory target.
-_deps/sfml-build/src/SFML/Network/all: _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/all
-.PHONY : _deps/sfml-build/src/SFML/Network/all
+src/SFML/System/all: src/SFML/System/CMakeFiles/sfml-system.dir/all
+.PHONY : src/SFML/System/all
 
 # Recursive "preinstall" directory target.
-_deps/sfml-build/src/SFML/Network/preinstall:
-.PHONY : _deps/sfml-build/src/SFML/Network/preinstall
+src/SFML/System/preinstall:
+.PHONY : src/SFML/System/preinstall
 
 # Recursive "clean" directory target.
-_deps/sfml-build/src/SFML/Network/clean: _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Network/clean
+src/SFML/System/clean: src/SFML/System/CMakeFiles/sfml-system.dir/clean
+.PHONY : src/SFML/System/clean
 
 #=============================================================================
-# Directory level rules for directory _deps/sfml-build/src/SFML/System
+# Directory level rules for directory src/SFML/Window
 
 # Recursive "all" directory target.
-_deps/sfml-build/src/SFML/System/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
-.PHONY : _deps/sfml-build/src/SFML/System/all
+src/SFML/Window/all: src/SFML/Window/CMakeFiles/sfml-window.dir/all
+.PHONY : src/SFML/Window/all
 
 # Recursive "preinstall" directory target.
-_deps/sfml-build/src/SFML/System/preinstall:
-.PHONY : _deps/sfml-build/src/SFML/System/preinstall
+src/SFML/Window/preinstall:
+.PHONY : src/SFML/Window/preinstall
 
 # Recursive "clean" directory target.
-_deps/sfml-build/src/SFML/System/clean: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/System/clean
+src/SFML/Window/clean: src/SFML/Window/CMakeFiles/sfml-window.dir/clean
+.PHONY : src/SFML/Window/clean
 
 #=============================================================================
-# Directory level rules for directory _deps/sfml-build/src/SFML/Window
-
-# Recursive "all" directory target.
-_deps/sfml-build/src/SFML/Window/all: _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all
-.PHONY : _deps/sfml-build/src/SFML/Window/all
-
-# Recursive "preinstall" directory target.
-_deps/sfml-build/src/SFML/Window/preinstall:
-.PHONY : _deps/sfml-build/src/SFML/Window/preinstall
-
-# Recursive "clean" directory target.
-_deps/sfml-build/src/SFML/Window/clean: _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Window/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/UTN_INSPT_SFMLProject.dir
+# Target rules for target src/SFML/System/CMakeFiles/sfml-system.dir
 
 # All Build rule for target.
-CMakeFiles/UTN_INSPT_SFMLProject.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
-CMakeFiles/UTN_INSPT_SFMLProject.dir/all: _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all
-CMakeFiles/UTN_INSPT_SFMLProject.dir/all: _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all
-CMakeFiles/UTN_INSPT_SFMLProject.dir/all: _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\UTN_INSPT_SFMLProject.dir\build.make CMakeFiles/UTN_INSPT_SFMLProject.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\UTN_INSPT_SFMLProject.dir\build.make CMakeFiles/UTN_INSPT_SFMLProject.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=1 "Built target UTN_INSPT_SFMLProject"
-.PHONY : CMakeFiles/UTN_INSPT_SFMLProject.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/UTN_INSPT_SFMLProject.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 89
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/UTN_INSPT_SFMLProject.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 0
-.PHONY : CMakeFiles/UTN_INSPT_SFMLProject.dir/rule
-
-# Convenience name for target.
-UTN_INSPT_SFMLProject: CMakeFiles/UTN_INSPT_SFMLProject.dir/rule
-.PHONY : UTN_INSPT_SFMLProject
-
-# clean rule for target.
-CMakeFiles/UTN_INSPT_SFMLProject.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\UTN_INSPT_SFMLProject.dir\build.make CMakeFiles/UTN_INSPT_SFMLProject.dir/clean
-.PHONY : CMakeFiles/UTN_INSPT_SFMLProject.dir/clean
-
-#=============================================================================
-# Target rules for target _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir
-
-# All Build rule for target.
-_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/build
+src/SFML/System/CMakeFiles/sfml-system.dir/all:
+	$(MAKE) $(MAKESILENT) -f src\SFML\System\CMakeFiles\sfml-system.dir\build.make src/SFML/System/CMakeFiles/sfml-system.dir/depend
+	$(MAKE) $(MAKESILENT) -f src\SFML\System\CMakeFiles\sfml-system.dir\build.make src/SFML/System/CMakeFiles/sfml-system.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=61,62,63,64,65,66,67,68,69,70,71,72,73,74,75 "Built target sfml-system"
-.PHONY : _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
+.PHONY : src/SFML/System/CMakeFiles/sfml-system.dir/all
 
 # Build rule for subdir invocation for target.
-_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/rule: cmake_check_build_system
+src/SFML/System/CMakeFiles/sfml-system.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 15
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/SFML/System/CMakeFiles/sfml-system.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 0
-.PHONY : _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/rule
+.PHONY : src/SFML/System/CMakeFiles/sfml-system.dir/rule
 
 # Convenience name for target.
-sfml-system: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/rule
+sfml-system: src/SFML/System/CMakeFiles/sfml-system.dir/rule
 .PHONY : sfml-system
 
 # clean rule for target.
-_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/clean
+src/SFML/System/CMakeFiles/sfml-system.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src\SFML\System\CMakeFiles\sfml-system.dir\build.make src/SFML/System/CMakeFiles/sfml-system.dir/clean
+.PHONY : src/SFML/System/CMakeFiles/sfml-system.dir/clean
 
 #=============================================================================
-# Target rules for target _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir
+# Target rules for target src/SFML/Main/CMakeFiles/sfml-main.dir
 
 # All Build rule for target.
-_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/all:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=50 "Built target sfml-main"
-.PHONY : _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/all
+src/SFML/Main/CMakeFiles/sfml-main.dir/all:
+	$(MAKE) $(MAKESILENT) -f src\SFML\Main\CMakeFiles\sfml-main.dir\build.make src/SFML/Main/CMakeFiles/sfml-main.dir/depend
+	$(MAKE) $(MAKESILENT) -f src\SFML\Main\CMakeFiles\sfml-main.dir\build.make src/SFML/Main/CMakeFiles/sfml-main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=48,49 "Built target sfml-main"
+.PHONY : src/SFML/Main/CMakeFiles/sfml-main.dir/all
 
 # Build rule for subdir invocation for target.
-_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 1
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/all
+src/SFML/Main/CMakeFiles/sfml-main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/SFML/Main/CMakeFiles/sfml-main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 0
-.PHONY : _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
+.PHONY : src/SFML/Main/CMakeFiles/sfml-main.dir/rule
 
 # Convenience name for target.
-sfml-main: _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
+sfml-main: src/SFML/Main/CMakeFiles/sfml-main.dir/rule
 .PHONY : sfml-main
 
 # clean rule for target.
-_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/clean
+src/SFML/Main/CMakeFiles/sfml-main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src\SFML\Main\CMakeFiles\sfml-main.dir\build.make src/SFML/Main/CMakeFiles/sfml-main.dir/clean
+.PHONY : src/SFML/Main/CMakeFiles/sfml-main.dir/clean
 
 #=============================================================================
-# Target rules for target _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir
+# Target rules for target src/SFML/Window/CMakeFiles/sfml-window.dir
 
 # All Build rule for target.
-_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/build
+src/SFML/Window/CMakeFiles/sfml-window.dir/all: src/SFML/System/CMakeFiles/sfml-system.dir/all
+	$(MAKE) $(MAKESILENT) -f src\SFML\Window\CMakeFiles\sfml-window.dir\build.make src/SFML/Window/CMakeFiles/sfml-window.dir/depend
+	$(MAKE) $(MAKESILENT) -f src\SFML\Window\CMakeFiles\sfml-window.dir\build.make src/SFML/Window/CMakeFiles/sfml-window.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Built target sfml-window"
-.PHONY : _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all
+.PHONY : src/SFML/Window/CMakeFiles/sfml-window.dir/all
 
 # Build rule for subdir invocation for target.
-_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/rule: cmake_check_build_system
+src/SFML/Window/CMakeFiles/sfml-window.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 40
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/SFML/Window/CMakeFiles/sfml-window.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 0
-.PHONY : _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/rule
+.PHONY : src/SFML/Window/CMakeFiles/sfml-window.dir/rule
 
 # Convenience name for target.
-sfml-window: _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/rule
+sfml-window: src/SFML/Window/CMakeFiles/sfml-window.dir/rule
 .PHONY : sfml-window
 
 # clean rule for target.
-_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/clean
+src/SFML/Window/CMakeFiles/sfml-window.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src\SFML\Window\CMakeFiles\sfml-window.dir\build.make src/SFML/Window/CMakeFiles/sfml-window.dir/clean
+.PHONY : src/SFML/Window/CMakeFiles/sfml-window.dir/clean
 
 #=============================================================================
-# Target rules for target _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir
+# Target rules for target src/SFML/Network/CMakeFiles/sfml-network.dir
 
 # All Build rule for target.
-_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=51,52,53,54,55,56,57,58,59,60 "Built target sfml-network"
-.PHONY : _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/all
+src/SFML/Network/CMakeFiles/sfml-network.dir/all: src/SFML/System/CMakeFiles/sfml-system.dir/all
+	$(MAKE) $(MAKESILENT) -f src\SFML\Network\CMakeFiles\sfml-network.dir\build.make src/SFML/Network/CMakeFiles/sfml-network.dir/depend
+	$(MAKE) $(MAKESILENT) -f src\SFML\Network\CMakeFiles\sfml-network.dir\build.make src/SFML/Network/CMakeFiles/sfml-network.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=50,51,52,53,54,55,56,57,58,59,60 "Built target sfml-network"
+.PHONY : src/SFML/Network/CMakeFiles/sfml-network.dir/all
 
 # Build rule for subdir invocation for target.
-_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 25
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/all
+src/SFML/Network/CMakeFiles/sfml-network.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 26
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/SFML/Network/CMakeFiles/sfml-network.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 0
-.PHONY : _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/rule
+.PHONY : src/SFML/Network/CMakeFiles/sfml-network.dir/rule
 
 # Convenience name for target.
-sfml-network: _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/rule
+sfml-network: src/SFML/Network/CMakeFiles/sfml-network.dir/rule
 .PHONY : sfml-network
 
 # clean rule for target.
-_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/clean
+src/SFML/Network/CMakeFiles/sfml-network.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src\SFML\Network\CMakeFiles\sfml-network.dir\build.make src/SFML/Network/CMakeFiles/sfml-network.dir/clean
+.PHONY : src/SFML/Network/CMakeFiles/sfml-network.dir/clean
 
 #=============================================================================
-# Target rules for target _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir
+# Target rules for target src/SFML/Graphics/CMakeFiles/sfml-graphics.dir
 
 # All Build rule for target.
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all: _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\build.make _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\build.make _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49 "Built target sfml-graphics"
-.PHONY : _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all
+src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all: src/SFML/System/CMakeFiles/sfml-system.dir/all
+src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all: src/SFML/Window/CMakeFiles/sfml-window.dir/all
+	$(MAKE) $(MAKESILENT) -f src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/depend
+	$(MAKE) $(MAKESILENT) -f src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47 "Built target sfml-graphics"
+.PHONY : src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all
 
 # Build rule for subdir invocation for target.
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 68
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all
+src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 67
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 0
-.PHONY : _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule
+.PHONY : src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule
 
 # Convenience name for target.
-sfml-graphics: _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule
+sfml-graphics: src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule
 .PHONY : sfml-graphics
 
 # clean rule for target.
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\build.make _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/clean
+src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/clean
+.PHONY : src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/clean
 
 #=============================================================================
-# Target rules for target _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir
+# Target rules for target src/SFML/Audio/CMakeFiles/sfml-audio.dir
 
 # All Build rule for target.
-_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\build.make _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\build.make _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 "Built target sfml-audio"
-.PHONY : _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/all
+src/SFML/Audio/CMakeFiles/sfml-audio.dir/all: src/SFML/System/CMakeFiles/sfml-system.dir/all
+	$(MAKE) $(MAKESILENT) -f src\SFML\Audio\CMakeFiles\sfml-audio.dir\build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/depend
+	$(MAKE) $(MAKESILENT) -f src\SFML\Audio\CMakeFiles\sfml-audio.dir\build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\ProyectoTallerMultimedial\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 "Built target sfml-audio"
+.PHONY : src/SFML/Audio/CMakeFiles/sfml-audio.dir/all
 
 # Build rule for subdir invocation for target.
-_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule: cmake_check_build_system
+src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 35
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/SFML/Audio/CMakeFiles/sfml-audio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 0
-.PHONY : _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule
+.PHONY : src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule
 
 # Convenience name for target.
-sfml-audio: _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule
+sfml-audio: src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule
 .PHONY : sfml-audio
 
 # clean rule for target.
-_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Audio\CMakeFiles\sfml-audio.dir\build.make _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean
-.PHONY : _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean
+src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src\SFML\Audio\CMakeFiles\sfml-audio.dir\build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean
+.PHONY : src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
@@ -403,7 +357,6 @@ _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/clean:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P E:\ProyectoTallerMultimedial\build\CMakeFiles\VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

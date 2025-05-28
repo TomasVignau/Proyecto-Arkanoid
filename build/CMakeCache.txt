@@ -16,7 +16,7 @@
 
 //TRUE to build SFML as shared libraries, FALSE to build it as
 // static libraries
-BUILD_SHARED_LIBS:BOOL=OFF
+BUILD_SHARED_LIBS:BOOL=TRUE
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=C:/msys64/mingw64/bin/addr2line.exe
@@ -152,7 +152,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/UTN_INSPT_SFMLProject
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/SFML
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -212,7 +212,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=UTN_INSPT_SFMLProject
+CMAKE_PROJECT_NAME:STATIC=SFML
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/msys64/mingw64/bin/ranlib.exe
@@ -324,55 +324,32 @@ CPACK_SOURCE_7Z:BOOL=ON
 //Enable to build ZIP source packages
 CPACK_SOURCE_ZIP:BOOL=ON
 
-//Directory under which to collect all populated content
-FETCHCONTENT_BASE_DIR:PATH=E:/ProyectoTallerMultimedial/build/_deps
-
-//Disables all attempts to download or update content and assumes
-// source dirs already exist
-FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
-
-//Enables QUIET option for all content population
-FETCHCONTENT_QUIET:BOOL=ON
-
-//When not empty, overrides where to find pre-populated content
-// for SFML
-FETCHCONTENT_SOURCE_DIR_SFML:PATH=
-
-//Enables UPDATE_DISCONNECTED behavior for all content population
-FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
-
-//Enables UPDATE_DISCONNECTED behavior just for population of SFML
-FETCHCONTENT_UPDATES_DISCONNECTED_SFML:BOOL=OFF
-
 //Path to a file.
-FLAC_INCLUDE_DIR:PATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers
+FLAC_INCLUDE_DIR:PATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers
 
 //Path to a library.
-FLAC_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a
+FLAC_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a
 
 //Path to a file.
-FREETYPE_INCLUDE_DIR_freetype2:PATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers/freetype2
+FREETYPE_INCLUDE_DIR_freetype2:PATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers/freetype2
 
 //Path to a file.
-FREETYPE_INCLUDE_DIR_ft2build:PATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers/freetype2
+FREETYPE_INCLUDE_DIR_ft2build:PATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers/freetype2
 
 //Path to a library.
-FREETYPE_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a
-
-//Git command line client
-GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
+FREETYPE_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a
 
 //Path to a file.
-OGG_INCLUDE_DIR:PATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers
+OGG_INCLUDE_DIR:PATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers
 
 //Path to a library.
-OGG_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libogg.a
+OGG_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libogg.a
 
 //Path to a file.
-OPENAL_INCLUDE_DIR:PATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers/AL
+OPENAL_INCLUDE_DIR:PATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers/AL
 
 //Path to a library.
-OPENAL_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a
+OPENAL_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a
 
 //OpenGL library for win32
 OPENGL_gl_LIBRARY:STRING=opengl32
@@ -381,7 +358,7 @@ OPENGL_gl_LIBRARY:STRING=opengl32
 OPENGL_glu_LIBRARY:STRING=glu32
 
 //Value Computed by CMake
-SFML_BINARY_DIR:STATIC=E:/ProyectoTallerMultimedial/build/_deps/sfml-build
+SFML_BINARY_DIR:STATIC=E:/ProyectoTallerMultimedial/build
 
 //TRUE to build SFML's Audio module.
 SFML_BUILD_AUDIO:BOOL=TRUE
@@ -410,14 +387,14 @@ SFML_BUILD_WINDOW:BOOL=TRUE
 SFML_INSTALL_PKGCONFIG_FILES:BOOL=FALSE
 
 //Value Computed by CMake
-SFML_IS_TOP_LEVEL:STATIC=OFF
+SFML_IS_TOP_LEVEL:STATIC=ON
 
 //TRUE to use an OpenGL ES implementation, FALSE to use a desktop
 // OpenGL implementation
 SFML_OPENGL_ES:BOOL=0
 
 //Value Computed by CMake
-SFML_SOURCE_DIR:STATIC=E:/ProyectoTallerMultimedial/build/_deps/sfml-src
+SFML_SOURCE_DIR:STATIC=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src
 
 //TRUE to statically link to the standard libraries, FALSE to use
 // them as DLLs
@@ -426,26 +403,17 @@ SFML_USE_STATIC_STD_LIBS:BOOL=FALSE
 //TRUE to use system dependencies, FALSE to use the bundled ones.
 SFML_USE_SYSTEM_DEPS:BOOL=FALSE
 
-//Value Computed by CMake
-UTN_INSPT_SFMLProject_BINARY_DIR:STATIC=E:/ProyectoTallerMultimedial/build
-
-//Value Computed by CMake
-UTN_INSPT_SFMLProject_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-UTN_INSPT_SFMLProject_SOURCE_DIR:STATIC=E:/ProyectoTallerMultimedial/sfml-template
+//Path to a library.
+VORBISENC_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a
 
 //Path to a library.
-VORBISENC_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a
-
-//Path to a library.
-VORBISFILE_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a
+VORBISFILE_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a
 
 //Path to a file.
-VORBIS_INCLUDE_DIR:PATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers
+VORBIS_INCLUDE_DIR:PATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers
 
 //Path to a library.
-VORBIS_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a
+VORBIS_LIBRARY:FILEPATH=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a
 
 //Treat compiler warnings as errors
 WARNINGS_AS_ERRORS:BOOL=OFF
@@ -554,7 +522,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=E:/ProyectoTallerMultimedial/sfml-template
+CMAKE_HOME_DIRECTORY:INTERNAL=E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src
 //ADVANCED property for variable: CMAKE_INSTALL_BINDIR
 CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_INSTALL_DATADIR
@@ -604,7 +572,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -681,13 +649,13 @@ CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
 //Have include dinput.h
 DINPUT_H_FOUND:INTERNAL=1
 //Details about finding FLAC
-FIND_PACKAGE_MESSAGE_DETAILS_FLAC:INTERNAL=[E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a][E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_FLAC:INTERNAL=[E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a][E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers][v()]
 //Details about finding OpenAL
-FIND_PACKAGE_MESSAGE_DETAILS_OpenAL:INTERNAL=[E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a][E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers/AL][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenAL:INTERNAL=[E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a][E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers/AL][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
 //Details about finding VORBIS
-FIND_PACKAGE_MESSAGE_DETAILS_VORBIS:INTERNAL=[E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a;E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a;E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a;E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/libs-mingw/x64/libogg.a][E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers][E:/ProyectoTallerMultimedial/build/_deps/sfml-src/extlibs/headers][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_VORBIS:INTERNAL=[E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a;E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a;E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a;E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/libs-mingw/x64/libogg.a][E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers][E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src/extlibs/headers][v()]
 //ADVANCED property for variable: FLAC_INCLUDE_DIR
 FLAC_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: FLAC_LIBRARY
@@ -698,8 +666,6 @@ FREETYPE_INCLUDE_DIR_freetype2-ADVANCED:INTERNAL=1
 FREETYPE_INCLUDE_DIR_ft2build-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: FREETYPE_LIBRARY
 FREETYPE_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GIT_EXECUTABLE
-GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //Result of TRY_COMPILE
 HAVE_SIZEOF_VOID_PTR:INTERNAL=TRUE
 //Have include stddef.h
@@ -733,5 +699,5 @@ VORBIS_LIBRARY-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/UTN_INSPT_SFMLProject
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/SFML
 

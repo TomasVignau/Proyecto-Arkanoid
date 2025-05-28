@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "E:/ProyectoTallerMultimedial/sfml-template",
+    "cmake.sourceDirectory": "E:/ProyectoTallerMultimedial/sfml-template/build/_deps/sfml-src",
     "files.associations": {
         "array": "cpp",
         "atomic": "cpp",
