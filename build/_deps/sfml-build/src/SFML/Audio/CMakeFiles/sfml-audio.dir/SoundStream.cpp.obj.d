@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundStream.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundStream.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Audio\SoundStream.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Audio/SoundStream.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Audio/Export.hpp \

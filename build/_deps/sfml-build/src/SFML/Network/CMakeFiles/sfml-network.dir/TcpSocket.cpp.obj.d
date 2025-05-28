@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/TcpSocket.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/TcpSocket.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Network\TcpSocket.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Network/TcpSocket.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Network/Export.hpp \

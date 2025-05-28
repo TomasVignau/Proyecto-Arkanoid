@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/MutexImpl.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/MutexImpl.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\System\Win32\MutexImpl.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/src/SFML/System/Win32/MutexImpl.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/System/NonCopyable.hpp \

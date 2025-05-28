@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Graphics\Vertex.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/Vertex.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/Export.hpp \

@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Window\Keyboard.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Window/Keyboard.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Window/Export.hpp \

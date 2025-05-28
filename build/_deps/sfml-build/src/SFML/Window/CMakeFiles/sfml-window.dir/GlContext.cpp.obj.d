@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Window\GlContext.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/src/SFML/Window/GlContext.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Config.hpp \

@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Ftp.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Ftp.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Network\Ftp.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Network/Ftp.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Network/Export.hpp \

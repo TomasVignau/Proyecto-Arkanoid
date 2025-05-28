@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderOgg.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderOgg.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Audio\SoundFileReaderOgg.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/src/SFML/Audio/SoundFileReaderOgg.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Audio/SoundFileReader.hpp \

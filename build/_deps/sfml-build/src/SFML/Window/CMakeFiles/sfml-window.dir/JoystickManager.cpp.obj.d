@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManager.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManager.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Window\JoystickManager.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/src/SFML/Window/JoystickManager.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Window/Joystick.hpp \

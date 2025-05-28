@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Graphics\Texture.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/Texture.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/Export.hpp \

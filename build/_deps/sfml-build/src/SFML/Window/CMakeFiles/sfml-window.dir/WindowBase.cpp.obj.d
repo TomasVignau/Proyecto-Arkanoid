@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Window\WindowBase.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Window/WindowBase.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Window/Cursor.hpp \

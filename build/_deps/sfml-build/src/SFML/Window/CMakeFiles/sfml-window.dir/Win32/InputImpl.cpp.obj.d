@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/InputImpl.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/InputImpl.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Window\Win32\InputImpl.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Window/Window.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Window/ContextSettings.hpp \

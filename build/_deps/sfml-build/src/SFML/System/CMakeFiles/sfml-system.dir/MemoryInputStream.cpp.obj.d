@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\System\MemoryInputStream.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/System/MemoryInputStream.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Config.hpp \

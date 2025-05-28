@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/String.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/String.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\System\String.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/System/String.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/System/Export.hpp \

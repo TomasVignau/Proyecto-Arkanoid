@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Graphics\Text.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/Text.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/Export.hpp \

@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Packet.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Packet.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Network\Packet.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Network/Packet.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Network/Export.hpp \

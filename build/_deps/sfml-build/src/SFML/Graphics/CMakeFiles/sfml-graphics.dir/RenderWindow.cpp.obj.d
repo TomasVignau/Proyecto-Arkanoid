@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWindow.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWindow.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Graphics\RenderWindow.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/RenderWindow.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/Export.hpp \

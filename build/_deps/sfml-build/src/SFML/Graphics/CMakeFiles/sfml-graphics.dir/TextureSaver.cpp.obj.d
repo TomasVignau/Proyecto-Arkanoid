@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSaver.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSaver.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Graphics\TextureSaver.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/src/SFML/Graphics/TextureSaver.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/src/SFML/Graphics/GLCheck.hpp \

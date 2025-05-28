@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transformable.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transformable.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Graphics\Transformable.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/Transformable.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Graphics/Export.hpp \

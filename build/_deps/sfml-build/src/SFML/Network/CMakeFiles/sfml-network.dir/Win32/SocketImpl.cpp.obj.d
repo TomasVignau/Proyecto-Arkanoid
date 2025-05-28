@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Win32/SocketImpl.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/Win32/SocketImpl.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Network\Win32\SocketImpl.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/src/SFML/Network/Win32/SocketImpl.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Network/Socket.hpp \

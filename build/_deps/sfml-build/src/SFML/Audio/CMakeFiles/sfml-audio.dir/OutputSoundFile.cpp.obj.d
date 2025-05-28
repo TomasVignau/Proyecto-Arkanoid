@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/OutputSoundFile.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/OutputSoundFile.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Audio\OutputSoundFile.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Audio/OutputSoundFile.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Audio/Export.hpp \

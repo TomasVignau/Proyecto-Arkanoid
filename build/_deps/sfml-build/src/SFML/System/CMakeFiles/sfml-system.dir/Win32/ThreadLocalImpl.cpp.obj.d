@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/ThreadLocalImpl.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/ThreadLocalImpl.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\System\Win32\ThreadLocalImpl.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/src/SFML/System/Win32/ThreadLocalImpl.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/System/NonCopyable.hpp \

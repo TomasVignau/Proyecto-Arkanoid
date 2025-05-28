@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundRecorder.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundRecorder.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Audio\SoundRecorder.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Audio/SoundRecorder.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/Audio/Export.hpp \

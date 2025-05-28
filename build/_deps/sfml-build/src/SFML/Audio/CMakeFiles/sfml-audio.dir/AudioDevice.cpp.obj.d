@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/AudioDevice.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/AudioDevice.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\Audio\AudioDevice.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/src/SFML/Audio/AudioDevice.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/System/Vector3.hpp \

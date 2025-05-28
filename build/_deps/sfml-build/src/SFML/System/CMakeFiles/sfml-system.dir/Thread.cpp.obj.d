@@ -1,4 +1,4 @@
-_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Thread.cpp.obj: \
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Thread.cpp.obj: \
  E:\ProyectoTallerMultimedial\build\_deps\sfml-src\src\SFML\System\Thread.cpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/System/Thread.hpp \
  E:/ProyectoTallerMultimedial/build/_deps/sfml-src/include/SFML/System/Export.hpp \

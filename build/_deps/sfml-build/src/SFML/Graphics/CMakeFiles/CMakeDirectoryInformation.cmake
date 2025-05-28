@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "E:/ProyectoTallerMultimedial/build/_deps/sfml-src")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "E:/ProyectoTallerMultimedial/build")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "E:/ProyectoTallerMultimedial/build/_deps/sfml-build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

@@ -59,7 +59,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = E:\ProyectoTallerMultimedial\sfml-template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\ProyectoTallerMultimedial\build
+CMAKE_BINARY_DIR = E:\ProyectoTallerMultimedial2\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = E:\ProyectoTallerMultimedial\build
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool..."
-	cd /d E:\ProyectoTallerMultimedial\build && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackConfig.cmake
+	cd /d E:\ProyectoTallerMultimedial2\build && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -77,7 +77,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
-	cd /d E:\ProyectoTallerMultimedial\build && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackSourceConfig.cmake E:/ProyectoTallerMultimedial/build/CPackSourceConfig.cmake
+	cd /d E:\ProyectoTallerMultimedial2\build && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackSourceConfig.cmake E:/ProyectoTallerMultimedial2/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -151,14 +151,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /d E:\ProyectoTallerMultimedial\build && $(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles E:\ProyectoTallerMultimedial\build\_deps\sfml-build\src\SFML\Main\\CMakeFiles\progress.marks
-	cd /d E:\ProyectoTallerMultimedial\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Main/all
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial\build\CMakeFiles 0
+	cd /d E:\ProyectoTallerMultimedial2\build && $(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial2\build\CMakeFiles E:\ProyectoTallerMultimedial\build\_deps\sfml-build\src\SFML\Main\\CMakeFiles\progress.marks
+	cd /d E:\ProyectoTallerMultimedial2\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/all
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\ProyectoTallerMultimedial2\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d E:\ProyectoTallerMultimedial\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Main/clean
+	cd /d E:\ProyectoTallerMultimedial2\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/clean
 .PHONY : clean
 
 # The main clean target
@@ -167,32 +167,32 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d E:\ProyectoTallerMultimedial\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Main/preinstall
+	cd /d E:\ProyectoTallerMultimedial2\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d E:\ProyectoTallerMultimedial\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Main/preinstall
+	cd /d E:\ProyectoTallerMultimedial2\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d E:\ProyectoTallerMultimedial\build && $(CMAKE_COMMAND) -P E:\ProyectoTallerMultimedial\build\CMakeFiles\VerifyGlobs.cmake
-	cd /d E:\ProyectoTallerMultimedial\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d E:\ProyectoTallerMultimedial2\build && $(CMAKE_COMMAND) -P E:\ProyectoTallerMultimedial2\build\CMakeFiles\VerifyGlobs.cmake
+	cd /d E:\ProyectoTallerMultimedial2\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule:
-	cd /d E:\ProyectoTallerMultimedial\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
-.PHONY : _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
+E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule:
+	cd /d E:\ProyectoTallerMultimedial2\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
+.PHONY : E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
 
 # Convenience name for target.
-sfml-main: _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
+sfml-main: E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/rule
 .PHONY : sfml-main
 
 # fast build rule for target.
 sfml-main/fast:
-	cd /d E:\ProyectoTallerMultimedial\build && $(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/build
+	cd /d E:\ProyectoTallerMultimedial2\build && $(MAKE) $(MAKESILENT) -f E:\ProyectoTallerMultimedial\build\_deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/build
 .PHONY : sfml-main/fast
 
 MainWin32.obj: MainWin32.cpp.obj
@@ -200,7 +200,7 @@ MainWin32.obj: MainWin32.cpp.obj
 
 # target to build an object file
 MainWin32.cpp.obj:
-	cd /d E:\ProyectoTallerMultimedial\build && $(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/MainWin32.cpp.obj
+	cd /d E:\ProyectoTallerMultimedial2\build && $(MAKE) $(MAKESILENT) -f E:\ProyectoTallerMultimedial\build\_deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/MainWin32.cpp.obj
 .PHONY : MainWin32.cpp.obj
 
 MainWin32.i: MainWin32.cpp.i
@@ -208,7 +208,7 @@ MainWin32.i: MainWin32.cpp.i
 
 # target to preprocess a source file
 MainWin32.cpp.i:
-	cd /d E:\ProyectoTallerMultimedial\build && $(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/MainWin32.cpp.i
+	cd /d E:\ProyectoTallerMultimedial2\build && $(MAKE) $(MAKESILENT) -f E:\ProyectoTallerMultimedial\build\_deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/MainWin32.cpp.i
 .PHONY : MainWin32.cpp.i
 
 MainWin32.s: MainWin32.cpp.s
@@ -216,7 +216,7 @@ MainWin32.s: MainWin32.cpp.s
 
 # target to generate assembly for a file
 MainWin32.cpp.s:
-	cd /d E:\ProyectoTallerMultimedial\build && $(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/MainWin32.cpp.s
+	cd /d E:\ProyectoTallerMultimedial2\build && $(MAKE) $(MAKESILENT) -f E:\ProyectoTallerMultimedial\build\_deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\build.make E:/ProyectoTallerMultimedial/build/_deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/MainWin32.cpp.s
 .PHONY : MainWin32.cpp.s
 
 # Help Target
@@ -248,7 +248,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d E:\ProyectoTallerMultimedial\build && $(CMAKE_COMMAND) -P E:\ProyectoTallerMultimedial\build\CMakeFiles\VerifyGlobs.cmake
-	cd /d E:\ProyectoTallerMultimedial\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d E:\ProyectoTallerMultimedial2\build && $(CMAKE_COMMAND) -P E:\ProyectoTallerMultimedial2\build\CMakeFiles\VerifyGlobs.cmake
+	cd /d E:\ProyectoTallerMultimedial2\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
