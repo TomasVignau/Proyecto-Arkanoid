@@ -1,0 +1,1 @@
+-I"E:/ProyectoTallerMultimedialV2/build/_deps/sfml-src/include" -I"E:/ProyectoTallerMultimedialV2/build/_deps/sfml-src/src" -I"E:/ProyectoTallerMultimedialV2/build/_deps/sfml-src/extlibs/headers/vulkan" -isystem "E:/ProyectoTallerMultimedialV2/build/_deps/sfml-src/extlibs/headers/glad/include"

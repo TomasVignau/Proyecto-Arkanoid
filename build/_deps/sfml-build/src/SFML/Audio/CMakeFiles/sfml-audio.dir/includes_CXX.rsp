@@ -1,0 +1,1 @@
+-I"E:/ProyectoTallerMultimedialV2/build/_deps/sfml-src/include" -I"E:/ProyectoTallerMultimedialV2/build/_deps/sfml-src/src" -isystem "E:/ProyectoTallerMultimedialV2/build/_deps/sfml-src/extlibs/headers/minimp3" -isystem "E:/ProyectoTallerMultimedialV2/build/_deps/sfml-src/extlibs/headers/AL" -isystem "E:/ProyectoTallerMultimedialV2/build/_deps/sfml-src/extlibs/headers"
