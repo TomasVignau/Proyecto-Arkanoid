@@ -1,4 +1,4 @@
- //#include "sfml-utn-inspt.h"
+// #include "sfml-utn-inspt.h"
 
 #include "../include/sfml-utn-inspt.h"
 
@@ -97,17 +97,17 @@ int main()
   }
 
   sf::Text puntajeTexto;
-  puntajeTexto.setFont(fuente);                           // Establece la fuente
-  puntajeTexto.setString("SCORE: ");                      // Establece el texto
-  puntajeTexto.setCharacterSize(24);                      // Establece el tamaño del texto
-  puntajeTexto.setFillColor(sf::Color::White);            // Establece el color del texto
-  puntajeTexto.setPosition({posiciones.x-100, posiciones.y + 50}); // Establece la posición
+  puntajeTexto.setFont(fuente);                                      // Establece la fuente
+  puntajeTexto.setString("SCORE: ");                                 // Establece el texto
+  puntajeTexto.setCharacterSize(24);                                 // Establece el tamaño del texto
+  puntajeTexto.setFillColor(sf::Color::White);                       // Establece el color del texto
+  puntajeTexto.setPosition({posiciones.x - 100, posiciones.y + 50}); // Establece la posición
 
   sf::Text puntaje;
-  puntaje.setFont(fuente);                           // Establece la fuente
-  puntaje.setString("0");                      // Establece el texto
-  puntaje.setCharacterSize(24);                      // Establece el tamaño del texto
-  puntaje.setFillColor(sf::Color::White);            // Establece el color del texto
+  puntaje.setFont(fuente);                                // Establece la fuente
+  puntaje.setString("0");                                 // Establece el texto
+  puntaje.setCharacterSize(24);                           // Establece el tamaño del texto
+  puntaje.setFillColor(sf::Color::White);                 // Establece el color del texto
   puntaje.setPosition({posiciones.x, posiciones.y + 50}); // Establece la posición
   //-------------------------------------------------------------------------------------------------
 
@@ -130,8 +130,8 @@ int main()
     {
       bloques[i][j].setSize(sf::Vector2f(50, 20));         // Tamaño del bloque
       bloques[i][j].setPosition(j * 60 + 15, i * 30 + 15); // Espaciado
-      bloques[i][j].setFillColor(sf::Color::White);        // PARA USAR EN LINUX - Color del bloque
-      //bloques[i][j].setFillColor(colorArray[rand() % 5]);  // PARA USAR EN WINDOWS - Color del bloque
+      // bloques[i][j].setFillColor(sf::Color::White);        // PARA USAR EN LINUX - Color del bloque
+      bloques[i][j].setFillColor(colorArray[rand() % 5]); // PARA USAR EN WINDOWS - Color del bloque
     }
   }
 
@@ -195,39 +195,38 @@ int main()
   while (ventana.isOpen())
   {
 
-        while (mostrarInicio)
+    while (mostrarInicio)
+    {
+      Event event = Event();
+      while (ventana.pollEvent(event))
+      {
+        if (event.type == Event::Closed)
         {
-          Event event = Event();
-          while (ventana.pollEvent(event))
-          {
-            if (event.type == Event::Closed)
-            {
-              ventana.close();
-            }
-          }
-
-          //std::cout << "HOLA" << std::endl;
-          //ventana.clear(sf::Color::Black);
-          //ventana.clear(sf::Color::White);
-          //ventana.draw(fondo);
-          sf::Text textoInicio;
-          textoInicio.setFont(fuente);                                                                   // Establece la fuente
-          textoInicio.setString("\t-- ARKANOID --\nPRESIONE [ESPACIO]\nPARA INICIAR");                   // Establece el texto
-          textoInicio.setCharacterSize(50);                                                              // Establece el tamaño del texto
-          textoInicio.setFillColor(sf::Color::Blue);                                                    // Establece el color del texto
-          textoInicio.setPosition({150, 180});                                                           // Establece la posición
-
-
-          ventana.clear(sf::Color::Black);
-          ventana.draw(textoInicio);
-
-          if (Keyboard::isKeyPressed(Keyboard::Space))
-            {
-              //std::cout << "CHAU" << std::endl;
-              mostrarInicio = false;
-            }
+          ventana.close();
         }
+      }
 
+      // std::cout << "HOLA" << std::endl;
+      // ventana.clear(sf::Color::Black);
+      // ventana.clear(sf::Color::White);
+      // ventana.draw(fondo);
+      sf::Text textoInicio;
+      textoInicio.setFont(fuente);                                               // Establece la fuente
+      textoInicio.setString("-- ARKANOID --\nPRESIONE [ESPACIO]\nPARA INICIAR"); // Establece el texto
+      textoInicio.setCharacterSize(50);                                          // Establece el tamaño del texto
+      textoInicio.setFillColor(sf::Color::White);                                // Establece el color del texto
+      textoInicio.setPosition({150, 180});                                       // Establece la posición
+
+      ventana.clear(sf::Color::Black);
+      ventana.draw(textoInicio);
+      ventana.display();
+
+      if (Keyboard::isKeyPressed(Keyboard::Space))
+      {
+        // std::cout << "CHAU" << std::endl;
+        mostrarInicio = false;
+      }
+    }
 
     pelotita.setTexture(&texturasOjos[numeroDeTexturaAMostrar]);
 
@@ -248,12 +247,12 @@ int main()
       // 1 = DERECHA / 0 = IZQUIERDA
       if (leer_eventos(ventana, barrita) == 1)
       {
-        texturaBarrita = cargarTextura("../recursos/coheteDerecha.png");
+        texturaBarrita = cargarTextura("../recursos/nave.png");
         barrita.setTexture(&texturaBarrita);
       }
       else
       {
-        texturaBarrita = cargarTextura("../recursos/coheteIzquierda.png");
+        texturaBarrita = cargarTextura("../recursos/nave.png");
         barrita.setTexture(&texturaBarrita);
       }
 
@@ -272,7 +271,7 @@ int main()
       }
       else if (colision_con_ventana(pelotita, INFERIOR))
       {
-        bool stop = true;
+        /*bool stop = true;
         while (stop)
         {
           Event event = Event();
@@ -293,6 +292,42 @@ int main()
               cantVidas = cantVidas - 1;
             }
             diff.y = -VELOCIDAD;
+          }
+        }*/
+
+        cantVidas--; // Pierde una vida
+        // Reinicia posición de pelota y barrita
+        pelotita.setPosition(ANCHO_VENT / 2.f, ALTO_VENT / 2.f);
+        barrita.setPosition((ANCHO_VENT - ANCHO_BARRITA) / 2.f, ALTO_VENT - 40.f);
+        diff = {VELOCIDAD, VELOCIDAD}; // Reinicia dirección
+
+        // Esperar a que presione espacio
+        bool stop = true;
+        while (stop)
+        {
+          Event event;
+          while (ventana.pollEvent(event))
+          {
+            if (event.type == Event::Closed)
+            {
+              ventana.close();
+            }
+          }
+
+          sf::Text textoPausa;
+          textoPausa.setFont(fuente);
+          textoPausa.setString("¡Perdiste una vida!\nPresiona [ESPACIO] para continuar.");
+          textoPausa.setCharacterSize(30);
+          textoPausa.setFillColor(sf::Color::White);
+          textoPausa.setPosition(100, ALTO_VENT / 2.f);
+
+          ventana.clear(sf::Color::Black);
+          ventana.draw(textoPausa);
+          ventana.display();
+
+          if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+          {
+            stop = false;
           }
         }
       }
@@ -322,7 +357,7 @@ int main()
             // Comprobar si la pelotita ha tocado algún bloque
             if (pelotita.getGlobalBounds().intersects(bloques[i][j].getGlobalBounds()))
             {
-              //sonidoRebote.play();
+              // sonidoRebote.play();
 
               // Invertir la dirección de la pelota
               diff.y = -diff.y;
@@ -349,7 +384,7 @@ int main()
         }
       }
 
-      //std::cout << contadorDeBloquesEliminados << std::endl;
+      // std::cout << contadorDeBloquesEliminados << std::endl;
 
       puntaje.setString(std::to_string(score));
 
@@ -419,11 +454,10 @@ int main()
 
       if (cantVecesSonidoDerrota < 1)
       {
-        //sonidoDerrota.play();
+        // sonidoDerrota.play();
         cantVecesSonidoDerrota = cantVecesSonidoDerrota + 1;
       }
     }
-
 
     if (contadorDeBloquesEliminados == (FILAS * COLUMNAS))
     {
@@ -433,9 +467,9 @@ int main()
       while (ventana.pollEvent(e))
       {
         if ((Keyboard::isKeyPressed(Keyboard::Escape)) || (e.type == Event::Closed))
-          {
-            ventana.close();
-          }
+        {
+          ventana.close();
+        }
       }
       ventana.clear(sf::Color::Black);
       sf::Text textoVictoria;
@@ -565,7 +599,7 @@ Texture cargarTextura(String ruta)
   return textura;
 }
 
-void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f &diff)
+/*void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f &diff)
 {
   // Calcular la intersección relativa de la pelota con la barra
   float relativeIntersectX = (barrita.getPosition().x + (barrita.getSize().x / 2)) - pelotita.getPosition().x;
@@ -573,7 +607,7 @@ void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, V
 
   // Ángulo de rebote: El ángulo de la pelota depende de donde golpea la barra
   // Rango de -M_PI a M_PI, reflejando la pelota en el eje horizontal
-  //cout << normalizedRelativeIntersectionX << endl;
+  // cout << normalizedRelativeIntersectionX << endl;
 
   float bounceAngle = normalizedRelativeIntersectionX * M_PI; // Rango de -180 a 180 grados
 
@@ -583,7 +617,6 @@ void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, V
   {
     bounceAngle = bounceAngle - 1;
   }
-
 
   // Obtener la dirección del movimiento de la pelota (velocidad)
   float angleOfIncidence = atan2(diff.y, diff.x); // Ángulo de incidencia de la pelota
@@ -602,4 +635,37 @@ void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, V
 
   // Actualizar la posición de la pelota basándose en la nueva dirección
   pelotita.move(diff);
+}*/
+
+void updateBallDirection(CircleShape &pelotita, const RectangleShape &barrita, Vector2f &diff)
+{
+    // Invertimos dirección Y
+    diff.y = -diff.y;
+
+    // Ajuste según posición relativa de la pelotita en la barrita (opcional)
+    float barritaCenter = barrita.getPosition().x + barrita.getSize().x / 2.f;
+    float pelotitaCenter = pelotita.getPosition().x + pelotita.getRadius();
+    float offset = pelotitaCenter - barritaCenter;
+
+    diff.x += offset * 0.01f; // cambia el ángulo de rebote (más realista)
+
+    // AUMENTAR VELOCIDAD:
+    float aumento = 0.2f; // podés ajustar este valor
+    float velocidadMaxima = 8.0f;
+
+    // Calcular magnitud actual
+    float magnitud = std::sqrt(diff.x * diff.x + diff.y * diff.y);
+
+    // Si aún no alcanzamos la velocidad máxima, aumentamos
+    if (magnitud < velocidadMaxima)
+    {
+        // Normalizamos el vector y lo escalamos con más velocidad
+        float nx = diff.x / magnitud;
+        float ny = diff.y / magnitud;
+        magnitud += aumento;
+
+        diff.x = nx * magnitud;
+        diff.y = ny * magnitud;
+    }
 }
+
